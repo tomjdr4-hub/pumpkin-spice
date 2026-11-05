@@ -23,7 +23,8 @@ https://github.com/tomjdr4-hub/pumpkin-spice/releases/latest/download/system.jso
 
 ### Fiche de Sorcière
 - Type de Sorcière (Verte, de Coven, Séculière, Traditionnelle ou autre) et Essence liée.
-- Six Traits (ou plus) avec leur niveau d'Accomplissement de 1 à 3 ; un clic lance le test (1d6 + 1d6 par niveau).
+- Six Traits, chacun répondant à une question de la fiche (*Tu te vois comme…*, *Tu étudies la Magie pour…*, *Ta Magie…*, *Ton Familier…*, *Dans la vie de tous les jours…*, *Les autres te voient comme…*), plus des Traits libres.
+- Niveau d'Accomplissement de 1 à 3 et case « Utilisé » pour chaque Trait ; un clic lance le test (1d6 + 1d6 par niveau).
 - Test sans Trait (1d6), test collectif, Sorts connus.
 - Accomplissement : Essence étudiée, méthode, journal de progression.
 - Rappel de la Magie de la Source et de l'Ambiance du Café.

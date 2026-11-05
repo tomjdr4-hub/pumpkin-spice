@@ -11,28 +11,40 @@
     "look": "",
     "traits": [
       {
+        "question": "self",
         "name": "Âme de la fête",
-        "level": 1
+        "level": 1,
+        "used": false
       },
       {
+        "question": "study",
         "name": "Combattre la corruption de la planète",
-        "level": 1
+        "level": 1,
+        "used": false
       },
       {
+        "question": "magic",
         "name": "Apaiser les gens",
-        "level": 1
+        "level": 1,
+        "used": false
       },
       {
+        "question": "familiar",
         "name": "Charismatique",
-        "level": 1
+        "level": 1,
+        "used": false
       },
       {
+        "question": "mundane",
         "name": "À l'écoute",
-        "level": 1
+        "level": 1,
+        "used": false
       },
       {
+        "question": "others",
         "name": "Bienveillante",
-        "level": 1
+        "level": 1,
+        "used": false
       }
     ],
     "study": {

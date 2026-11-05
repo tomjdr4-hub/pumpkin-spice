@@ -204,6 +204,8 @@ export class WitchSheet extends PSActorSheet {
       archetypes: Object.keys(PS.ARCHETYPES).map(k => ({ value: k, label: t(`PS.Archetype.${k}`) })),
       traits: s.traits.map((tr, index) => ({
         ...tr, index,
+        questions: [{ value: "", label: t("PS.Witch.Question.none") },
+          ...PS.TRAIT_QUESTIONS.map(q => ({ value: q, label: t(`PS.Witch.Question.${q}`) }))],
         pips: Array.from({ length: PS.TRAIT_MAX }, (_, i) => ({ value: i + 1, on: i < tr.level })),
         dice: 1 + tr.level
       })),
@@ -255,7 +257,7 @@ export class WitchSheet extends PSActorSheet {
 
   static async #onAddTrait() {
     const traits = this.actor.system.toObject().traits;
-    traits.push({ name: "", level: 1 });
+    traits.push({ question: "", name: "", level: 1, used: false });
     await this.actor.update({ "system.traits": traits });
   }
 

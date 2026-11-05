@@ -21,9 +21,11 @@ export class WitchData extends foundry.abstract.TypeDataModel {
       pronouns: new fields.StringField({ initial: "" }),
       look: new fields.StringField({ initial: "" }),
       traits: new fields.ArrayField(new fields.SchemaField({
+        question: new fields.StringField({ initial: "" }),
         name: new fields.StringField({ initial: "" }),
-        level: new fields.NumberField({ required: true, nullable: false, integer: true, min: 1, max: PS.TRAIT_MAX, initial: 1 })
-      }), { initial: () => Array.from({ length: 6 }, () => ({ name: "", level: 1 })) }),
+        level: new fields.NumberField({ required: true, nullable: false, integer: true, min: 1, max: PS.TRAIT_MAX, initial: 1 }),
+        used: new fields.BooleanField({ initial: false })
+      }), { initial: () => PS.TRAIT_QUESTIONS.map(question => ({ question, name: "", level: 1, used: false })) }),
       study: new fields.SchemaField({
         essence: new fields.NumberField({ required: false, nullable: true, integer: true, min: 1, max: 6, initial: null }),
         method: new fields.StringField({ initial: "" })
@@ -32,6 +34,16 @@ export class WitchData extends foundry.abstract.TypeDataModel {
       realization: new fields.HTMLField({ initial: "" }),
       notes: new fields.HTMLField({ initial: "" })
     };
+  }
+
+  /** @override Les Traits créés avant la v0.2 reçoivent la question de leur position. */
+  static migrateData(source) {
+    if ( Array.isArray(source.traits) ) {
+      source.traits.forEach((t, i) => {
+        if ( t && (typeof t === "object") && (t.question === undefined) ) t.question = PS.TRAIT_QUESTIONS[i] ?? "";
+      });
+    }
+    return super.migrateData(source);
   }
 
   /** Traits renseignés, avec leur index d'origine. */

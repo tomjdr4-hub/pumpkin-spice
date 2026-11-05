@@ -1,7 +1,14 @@
 {
   "TYPES": {
-    "Actor": { "witch": "Witch", "cafe": "Café", "medium": "Medium" },
-    "Item": { "spell": "Spell", "ingredient": "Ingredient" }
+    "Actor": {
+      "witch": "Witch",
+      "cafe": "Café",
+      "medium": "Medium"
+    },
+    "Item": {
+      "spell": "Spell",
+      "ingredient": "Ingredient"
+    }
   },
   "PS": {
     "Essence": {
@@ -99,7 +106,19 @@
       "realization": "Path to Realization",
       "biography": "Biography",
       "MagicRule": "For 1 Magic point from the Fount, after a roll: turn a die into {essence} ({n}), or turn a {essence} die into any Essence.",
-      "Pick": "Which Witch?"
+      "Pick": "Which Witch?",
+      "questionHint": "The question this Trait answers",
+      "used": "Used",
+      "usedHint": "Tick when this Trait came into play during the Day",
+      "Question": {
+        "none": "Free Trait…",
+        "self": "You see yourself as…",
+        "study": "You study Magic to…",
+        "magic": "Your Magic…",
+        "familiar": "Your Familiar…",
+        "mundane": "Mundane feature…",
+        "others": "Others see you as…"
+      }
     },
     "Cafe": {
       "magic": "Fount Magic",
@@ -194,7 +213,10 @@
       "Cast": "Cast alone",
       "CastTogether": "Cast together",
       "spellType": "Type",
-      "type": { "generic": "Generic", "personal": "Personal" },
+      "type": {
+        "generic": "Generic",
+        "personal": "Personal"
+      },
       "essences": "Required Essences",
       "altEssences": "Essences if conditions are not met",
       "conditions": "Conditions",

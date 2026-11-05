@@ -1,7 +1,14 @@
 {
   "TYPES": {
-    "Actor": { "witch": "Sorcière", "cafe": "Café", "medium": "Médium" },
-    "Item": { "spell": "Sort", "ingredient": "Ingrédient" }
+    "Actor": {
+      "witch": "Sorcière",
+      "cafe": "Café",
+      "medium": "Médium"
+    },
+    "Item": {
+      "spell": "Sort",
+      "ingredient": "Ingrédient"
+    }
   },
   "PS": {
     "Essence": {
@@ -99,7 +106,19 @@
       "realization": "Chemin d'Accomplissement",
       "biography": "Biographie",
       "MagicRule": "Pour 1 point de Magie de la Source, après un jet : changer un dé en {essence} ({n}), ou changer un dé {essence} en n'importe quelle Essence.",
-      "Pick": "Quelle Sorcière ?"
+      "Pick": "Quelle Sorcière ?",
+      "questionHint": "La question à laquelle répond ce Trait",
+      "used": "Utilisé",
+      "usedHint": "Cochez quand ce Trait a servi pendant la Journée",
+      "Question": {
+        "none": "Trait libre…",
+        "self": "Tu te vois comme…",
+        "study": "Tu étudies la Magie pour…",
+        "magic": "Ta Magie…",
+        "familiar": "Ton Familier…",
+        "mundane": "Dans la vie de tous les jours…",
+        "others": "Les autres te voient comme…"
+      }
     },
     "Cafe": {
       "magic": "Magie de la Source",
@@ -194,7 +213,10 @@
       "Cast": "Lancer seule",
       "CastTogether": "Lancer ensemble",
       "spellType": "Type",
-      "type": { "generic": "Générique", "personal": "Personnel" },
+      "type": {
+        "generic": "Générique",
+        "personal": "Personnel"
+      },
       "essences": "Essences requises",
       "altEssences": "Essences si conditions non remplies",
       "conditions": "Conditions",

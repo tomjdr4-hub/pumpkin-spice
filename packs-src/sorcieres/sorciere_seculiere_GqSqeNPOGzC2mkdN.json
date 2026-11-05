@@ -11,28 +11,40 @@
     "look": "",
     "traits": [
       {
+        "question": "self",
         "name": "Bricoleuse habile",
-        "level": 1
+        "level": 1,
+        "used": false
       },
       {
+        "question": "study",
         "name": "Comprendre la vraie beauté",
-        "level": 1
+        "level": 1,
+        "used": false
       },
       {
+        "question": "magic",
         "name": "Créer des merveilles",
-        "level": 1
+        "level": 1,
+        "used": false
       },
       {
-        "name": "Artiste renommée",
-        "level": 1
-      },
-      {
-        "name": "Mystérieuse",
-        "level": 1
-      },
-      {
+        "question": "familiar",
         "name": "",
-        "level": 1
+        "level": 1,
+        "used": false
+      },
+      {
+        "question": "mundane",
+        "name": "Artiste renommée",
+        "level": 1,
+        "used": false
+      },
+      {
+        "question": "others",
+        "name": "Mystérieuse",
+        "level": 1,
+        "used": false
       }
     ],
     "study": {

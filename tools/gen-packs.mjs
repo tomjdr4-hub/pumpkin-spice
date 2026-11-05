@@ -5,6 +5,7 @@
 import { createHash } from "node:crypto";
 import { mkdir, rm, writeFile } from "node:fs/promises";
 
+const PS_QUESTIONS = ["self", "study", "magic", "familiar", "mundane", "others"];
 const SYS = "systems/pumpkin-spice";
 const ESS = n => `${SYS}/assets/essences/${n}.svg`;
 const id = seed => {
@@ -32,7 +33,7 @@ const WITCHES = [
   },
   {
     name: "Sorcière Séculière", archetype: "secular", essence: 5,
-    traits: ["Bricoleuse habile", "Comprendre la vraie beauté", "Créer des merveilles", "Artiste renommée", "Mystérieuse", ""],
+    traits: ["Bricoleuse habile", "Comprendre la vraie beauté", "Créer des merveilles", "", "Artiste renommée", "Mystérieuse"],
     bio: "Pour elle, la sorcellerie est un artisanat : elle aime ce qui se fabrique de ses mains, avec un soupçon de Magie."
   },
   {
@@ -48,7 +49,7 @@ const witches = WITCHES.map((w, i) => {
     _id, _key: `!actors!${_id}`, name: w.name, type: "witch", img: `${SYS}/assets/icons/witch.svg`,
     system: {
       archetype: w.archetype, essence: w.essence, pronouns: "", look: "",
-      traits: w.traits.map(name => ({ name, level: 1 })),
+      traits: w.traits.map((name, i) => ({ question: PS_QUESTIONS[i], name, level: 1, used: false })),
       study: { essence: null, method: "" },
       biography: p(w.bio, "<em>Donnez-lui un nom, et imaginez ce que chaque Trait dit de son passé.</em>"),
       realization: "", notes: ""

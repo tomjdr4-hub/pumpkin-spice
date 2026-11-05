@@ -42,6 +42,9 @@ export const PS = {
   VIBE_MAX: 6,
   TRAIT_MAX: 3,
 
+  /** Question à laquelle répond chaque Trait, dans l'ordre de la fiche ("" : Trait libre). */
+  TRAIT_QUESTIONS: ["self", "study", "magic", "familiar", "mundane", "others"],
+
   /** Conséquences mécaniques possibles d'un test. */
   CONSEQUENCES: ["none", "alone", "rush"],
 

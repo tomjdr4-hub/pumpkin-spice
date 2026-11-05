@@ -11,28 +11,40 @@
     "look": "",
     "traits": [
       {
+        "question": "self",
         "name": "Ne faire qu'un avec la nature",
-        "level": 1
+        "level": 1,
+        "used": false
       },
       {
+        "question": "study",
         "name": "Protéger mes proches",
-        "level": 1
+        "level": 1,
+        "used": false
       },
       {
+        "question": "magic",
         "name": "Soigner le corps",
-        "level": 1
+        "level": 1,
+        "used": false
       },
       {
+        "question": "familiar",
         "name": "Curieuse",
-        "level": 1
+        "level": 1,
+        "used": false
       },
       {
+        "question": "mundane",
         "name": "Amie des animaux",
-        "level": 1
+        "level": 1,
+        "used": false
       },
       {
+        "question": "others",
         "name": "Imprévisible",
-        "level": 1
+        "level": 1,
+        "used": false
       }
     ],
     "study": {
