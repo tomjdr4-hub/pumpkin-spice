@@ -1,0 +1,16 @@
+{
+  "_id": "y68lQw771v3gBltk",
+  "_key": "!items!y68lQw771v3gBltk",
+  "name": "Camomille Évanescente",
+  "type": "ingredient",
+  "img": "systems/pumpkin-spice/assets/essences/4.svg",
+  "system": {
+    "essence": 4,
+    "quantity": 3,
+    "description": "<p>De petites fleurs qui semblent s'effacer quand on les regarde trop longtemps.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 400,
+  "flags": {}
+}

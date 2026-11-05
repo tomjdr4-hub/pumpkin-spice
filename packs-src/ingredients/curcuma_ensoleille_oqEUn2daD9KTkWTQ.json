@@ -1,0 +1,16 @@
+{
+  "_id": "oqEUn2daD9KTkWTQ",
+  "_key": "!items!oqEUn2daD9KTkWTQ",
+  "name": "Curcuma Ensoleillé",
+  "type": "ingredient",
+  "img": "systems/pumpkin-spice/assets/essences/3.svg",
+  "system": {
+    "essence": 3,
+    "quantity": 3,
+    "description": "<p>Une poudre dorée, chaude comme un après-midi d'été.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 300,
+  "flags": {}
+}

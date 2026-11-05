@@ -1,0 +1,16 @@
+{
+  "_id": "k9CCoA4mmILOISbC",
+  "_key": "!items!k9CCoA4mmILOISbC",
+  "name": "Lavande Lunaire",
+  "type": "ingredient",
+  "img": "systems/pumpkin-spice/assets/essences/6.svg",
+  "system": {
+    "essence": 6,
+    "quantity": 3,
+    "description": "<p>Des épis argentés qu'on récolte, dit-on, à la pleine lune.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 600,
+  "flags": {}
+}

@@ -1,0 +1,28 @@
+<p class="hint">{{localize "PS.Magic.Hint" magic=magic}}</p>
+<fieldset>
+  <legend>{{localize "TYPES.Actor.witch"}}</legend>
+  <div class="ps-choice-row">
+    {{#each witches as |w|}}
+    <label class="ps-choice"><input type="radio" name="witch" value="{{w.actorId}}" {{#if w.checked}}checked{{/if}}>
+      <img src="{{w.img}}" alt=""> {{w.name}} <img class="ps-essence small" src="{{w.essenceIcon}}" alt=""></label>
+    {{/each}}
+  </div>
+</fieldset>
+<fieldset>
+  <legend>{{localize "PS.Magic.Die"}}</legend>
+  <div class="ps-choice-row">
+    {{#each dice as |d|}}
+    <label class="ps-choice ps-die-choice"><input type="radio" name="die" value="{{d.index}}" {{#if @first}}checked{{/if}}>
+      <img class="ps-essence" src="{{d.icon}}" title="{{d.label}}" alt="{{d.value}}"></label>
+    {{/each}}
+  </div>
+</fieldset>
+<fieldset>
+  <legend>{{localize "PS.Magic.Into"}}</legend>
+  <div class="ps-choice-row">
+    {{#each essences as |e|}}
+    <label class="ps-choice ps-die-choice"><input type="radio" name="value" value="{{e.value}}">
+      <img class="ps-essence" src="{{e.icon}}" title="{{e.label}}" alt="{{e.value}}"></label>
+    {{/each}}
+  </div>
+</fieldset>

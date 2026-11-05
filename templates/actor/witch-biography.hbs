@@ -1,0 +1,6 @@
+<section class="tab {{tab.cssClass}}" data-tab="biography" data-group="primary">
+  <h3 class="ps-section">{{localize "PS.Witch.biography"}}</h3>
+  <prose-mirror toggled name="system.biography" value="{{system.biography}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.biography}}}</prose-mirror>
+  <h3 class="ps-section">{{localize "PS.Sheet.Notes"}}</h3>
+  <prose-mirror toggled name="system.notes" value="{{system.notes}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.notes}}}</prose-mirror>
+</section>

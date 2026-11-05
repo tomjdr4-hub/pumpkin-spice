@@ -1,0 +1,16 @@
+{{#if spell}}<p class="ps-spell-note"><i class="fa-solid fa-wand-sparkles"></i> {{localize "PS.Spell.CostNote" name=spell.name cost=spell.cost}}</p>{{/if}}
+<p class="hint">{{localize "PS.Coven.Hint"}}</p>
+<table class="ps-coven">
+  <thead><tr><th></th><th>{{localize "TYPES.Actor.witch"}}</th><th>{{localize "PS.Coven.Leader"}}</th><th>{{localize "PS.Test.Trait"}}</th></tr></thead>
+  <tbody>
+    {{#each witches as |w|}}
+    <tr>
+      <td><input type="checkbox" name="on.{{w.id}}" {{#if w.checked}}checked{{/if}}></td>
+      <td class="ps-coven-name"><img src="{{w.img}}" alt=""> {{w.name}} <img class="ps-essence small" src="{{w.essenceIcon}}" alt=""></td>
+      <td><input type="radio" name="leader" value="{{w.id}}" {{#if w.leader}}checked{{/if}}></td>
+      <td><select name="trait.{{w.id}}">{{#each w.traits}}<option value="{{this.value}}">{{this.label}}</option>{{/each}}</select></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{> "systems/pumpkin-spice/templates/dialog/targets.hbs"}}

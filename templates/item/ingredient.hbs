@@ -1,0 +1,19 @@
+<div class="ps-item-body">
+  <header class="ps-header">
+    <img class="ps-portrait small" src="{{item.img}}" data-action="editImage" data-edit="img" alt="{{item.name}}">
+    <div class="ps-header-main">
+      <input class="ps-name" type="text" name="name" value="{{item.name}}">
+      <div class="ps-row">
+        <label class="ps-essence-pick">{{localize "PS.Witch.essence"}}
+          <span class="ps-essence-select">
+            <img class="ps-essence" src="{{essenceIcon}}" alt="">
+            <select name="system.essence" data-dtype="Number">{{selectOptions essences selected=system.essence valueAttr="value" labelAttr="label"}}</select>
+          </span>
+        </label>
+        <label>{{localize "PS.Ingredient.quantity"}}<input type="number" name="system.quantity" value="{{system.quantity}}" min="0" class="ps-short"></label>
+      </div>
+    </div>
+  </header>
+  <h3 class="ps-section">{{localize "PS.Sheet.Description"}}</h3>
+  <prose-mirror toggled name="system.description" value="{{system.description}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.description}}}</prose-mirror>
+</div>

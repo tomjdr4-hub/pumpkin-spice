@@ -1,0 +1,22 @@
+<div class="pumpkin-spice ps-card ps-beverage {{#if result}}{{#if result.perfect}}favorable{{/if}}{{/if}}">
+  <header class="ps-card-header">
+    <h3><i class="fa-solid fa-mug-hot"></i> {{localize "PS.Beverage.For" name=mediumName}}</h3>
+  </header>
+  <ul class="ps-card-ingredients">
+    {{#each ingredients}}<li><img class="ps-essence" src="{{this.icon}}" title="{{this.label}}" alt=""> {{this.name}}</li>{{/each}}
+  </ul>
+  {{#if result}}
+  <div class="ps-card-targets">
+    <span class="ps-card-label">{{localize "PS.Beverage.Wanted"}}</span>
+    <span class="ps-dice-row">{{#each desires}}<img class="ps-essence {{#if this.met}}met{{else}}unmet{{/if}}" src="{{this.icon}}" title="{{this.label}}">{{/each}}</span>
+  </div>
+  <div class="ps-card-outcome">
+    {{#if result.perfect}}<i class="fa-solid fa-heart"></i> {{localize "PS.Beverage.Perfect" bonus=result.bonus}}
+    {{else}}{{localize "PS.Beverage.Correct" n=result.correct}}{{/if}}
+  </div>
+  <p class="ps-card-note"><i class="fa-solid fa-droplet"></i> {{localize "PS.Beverage.Gain" gain=result.gain magic=result.magic}}</p>
+  {{else}}
+  <p class="ps-card-note">{{localize "PS.Beverage.Waiting"}}</p>
+  <div class="ps-card-buttons"><button type="button" data-ps-action="serve"><i class="fa-solid fa-hand-holding-heart"></i> {{localize "PS.Beverage.Serve"}}</button></div>
+  {{/if}}
+</div>

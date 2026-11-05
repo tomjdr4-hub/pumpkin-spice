@@ -1,0 +1,271 @@
+{
+  "TYPES": {
+    "Actor": { "witch": "Witch", "cafe": "Café", "medium": "Medium" },
+    "Item": { "spell": "Spell", "ingredient": "Ingredient" }
+  },
+  "PS": {
+    "Essence": {
+      "authority": "Authority",
+      "nature": "Nature",
+      "empathy": "Empathy",
+      "stillness": "Stillness",
+      "imagination": "Imagination",
+      "wisdom": "Wisdom"
+    },
+    "EssenceHint": {
+      "authority": "force, will, power that shapes reality",
+      "nature": "living things, plants, beasts, the bond with the land",
+      "empathy": "other people, community, the ties between them",
+      "stillness": "the inner self, secrets, what we keep deep inside",
+      "imagination": "the future, art, creation, new ideas",
+      "wisdom": "the past, memory, knowledge, history"
+    },
+    "MediumPrompt": {
+      "authority": "Can't bring themselves to stand up for themselves, and it hurts.",
+      "nature": "Feels smothered by technology or city life.",
+      "empathy": "Keeps people at arm's length, struggles to connect.",
+      "stillness": "Lives for others' opinions instead of their own heart.",
+      "imagination": "Bored by routine, lacking creative spark.",
+      "wisdom": "Doubts their knowledge (or trusts it too much) and lacks perspective."
+    },
+    "Ingredient": {
+      "starryGinger": "Starry Ginger",
+      "energizedMint": "Energized Mint",
+      "sunlitTurmeric": "Sunlit Turmeric",
+      "evanescentChamomile": "Evanescent Chamomile",
+      "crimsonCinnamon": "Crimson Cinnamon",
+      "lunarLavender": "Lunar Lavender",
+      "quantity": "Doses"
+    },
+    "Archetype": {
+      "green": "Green Witch",
+      "coven": "Coven Witch",
+      "secular": "Secular Witch",
+      "traditional": "Traditional Witch",
+      "custom": "Other"
+    },
+    "Location": {
+      "countryside": "Countryside",
+      "village": "Village or small town",
+      "city": "Big city"
+    },
+    "Consequence": {
+      "none": "None (narrative)",
+      "alone": "Vibe ±1 (e.g. Grand Opening)",
+      "rush": "Rush Hour: +1 or −1 per missing Essence"
+    },
+    "Outcome": {
+      "favorable": "Favorable",
+      "unfavorable": "Unfavorable"
+    },
+    "Tab": {
+      "traits": "Traits",
+      "realization": "Realization",
+      "biography": "Biography",
+      "moments": "Moments",
+      "venue": "The Café",
+      "pantry": "Pantry",
+      "notes": "Notes"
+    },
+    "Sheet": {
+      "Name": "Name",
+      "Delete": "Delete",
+      "DeleteConfirm": "Delete {name}?",
+      "Create": "Create",
+      "Post": "Show in chat",
+      "Notes": "Notes",
+      "Description": "Description",
+      "Witch": "Witch Sheet",
+      "Cafe": "Café Sheet",
+      "Medium": "Medium Sheet",
+      "Spell": "Spell Sheet",
+      "Ingredient": "Ingredient Sheet"
+    },
+    "Witch": {
+      "archetype": "Witch type",
+      "essence": "Connected Essence",
+      "pronouns": "Pronouns",
+      "look": "Look",
+      "OpenCafe": "Open the Café sheet",
+      "traitPlaceholder": "Trait…",
+      "level": "Realization level (1 to 3)",
+      "rollTrait": "Test with this Trait",
+      "addTrait": "Add a Trait",
+      "noTrait": "No Trait (1d6)",
+      "realizationHint": "At the end of the Day: which Trait mattered? Should it be rewritten? Which Essence does your Witch want to study, and how?",
+      "studyEssence": "Essence studied",
+      "studyMethod": "How?",
+      "studyMethodPlaceholder": "A grimoire, a mentor, on their own…",
+      "realization": "Path to Realization",
+      "biography": "Biography",
+      "MagicRule": "For 1 Magic point from the Fount, after a roll: turn a die into {essence} ({n}), or turn a {essence} die into any Essence.",
+      "Pick": "Which Witch?"
+    },
+    "Cafe": {
+      "magic": "Fount Magic",
+      "magicShort": "Magic",
+      "vibe": "Vibe",
+      "incident": "Until Incident",
+      "incidentHint": "Countdown to a Magical Incident: at 0, the next Moment played is a Magical Incident.",
+      "day": "Day",
+      "namePlaceholder": "Café name",
+      "Active": "Coven's Café",
+      "SetActive": "Make this the coven's Café",
+      "NowActive": "{name} is now the coven's Café.",
+      "HowMany": "Number of Essence Dice",
+      "Coven": "The coven",
+      "location": "Where is the Fount?",
+      "style": "Café style",
+      "stylePlaceholder": "Frozen in time, brand new…",
+      "description": "Description",
+      "decorations": "Furniture and decoration",
+      "decorationsHint": "Each Witch adds a piece of furniture or decoration that suits them; the Guide goes last.",
+      "pantryHint": "Each Ingredient captures an Essence. A Beverage is made from 3 Ingredients (the same one may be used more than once).",
+      "addIngredient": "Add an Ingredient"
+    },
+    "Moment": {
+      "narrative": "Essence Die",
+      "narrativeHint": "To add a detail to the scene: roll one or more dice and interpret the Essences. Chat command: /essence 2",
+      "opening": "Grand Opening",
+      "openingHint": "Working alone: each Witch makes a test. Each Favorable outcome gives +1 Vibe, each Unfavorable −1.",
+      "together": "Working together",
+      "togetherHint": "One Witch leads and rolls all the dice; each adds their Trait dice. Anyone may use their Magic on any die.",
+      "rush": "Rush Hour!",
+      "rushHint": "The Guide rolls 1d6 + 1d6 per Witch: these are the Essences to get by working together. Favorable: +1 Vibe; Unfavorable: −1 per missing Essence.",
+      "medium": "Medium",
+      "mediumHint": "The Guide plays the Medium and secretly rolls 3 Essences. The Witches may interact {n} times (1 + Vibe), then brew the Beverage.",
+      "ume": "Unexpected Magical Event",
+      "umeHint": "Preliminary objectives (one test each), then often a Spell cast together. On failure, the Incident countdown drops.",
+      "endDay": "End of the Day",
+      "endDayHint": "Moves on to the next Day and recalls the Realization questions."
+    },
+    "UME": {
+      "Fail": "Failure: Incident −1",
+      "Confirm": "The U.M.E. went wrong: reduce the Magical Incident countdown by 1?",
+      "Failed": "The U.M.E. went wrong, people will talk…"
+    },
+    "EndDay": {
+      "Confirm": "End Day {day}?",
+      "Title": "End of Day {day}",
+      "Q1": "Which Trait of each Witch was crucial today? Do the events justify rewriting it, and how?",
+      "Q2": "Which Essence does each Witch want to study? With which book, which mentor, or alone — and how?"
+    },
+    "Medium": {
+      "New": "New Medium",
+      "Label": "Medium",
+      "Unknown": "The Medium",
+      "WhoIs": "Who is this Medium?",
+      "occupation": "Job, role",
+      "inspiration": "Inspiration",
+      "inspirationHint": "Roll an Essence Die to imagine who this Medium is",
+      "bonded": "Bond with the Fount",
+      "visits": "Visits",
+      "desires": "Essences sought (secret)",
+      "noDesires": "Not rolled yet",
+      "rollDesires": "Secretly roll 3d6",
+      "promptsHint": "Prompts to play the Medium according to the Essences rolled:",
+      "countdown": "Interactions left",
+      "start": "Start ({n})",
+      "interact": "One interaction",
+      "description": "Appearance and story",
+      "SecretDesires": "{name} secretly seeks:",
+      "CountdownLeft": "{name}: {n} more interaction(s) before wanting their Beverage.",
+      "CountdownDone": "{name} now awaits their Beverage!"
+    },
+    "Beverage": {
+      "Title": "Brew a Beverage",
+      "Prepare": "Brew",
+      "Hint": "Pick 3 Ingredients from the pantry. Each correct Essence gives 1 Magic; the perfect Beverage gives 1d6 additional Magic.",
+      "Ingredient": "Ingredient",
+      "GuideChooses": "— the Guide will choose —",
+      "For": "Beverage for {name}",
+      "Wanted": "Sought",
+      "Perfect": "Perfect Beverage! The bond with the Fount blossoms (+{bonus}).",
+      "Correct": "{n} correct Essence(s).",
+      "Gain": "The Fount gains {gain} Magic (total: {magic}).",
+      "Waiting": "The Beverage steams on the counter… The Guide serves it to the Medium.",
+      "Serve": "Serve (Guide)"
+    },
+    "Spell": {
+      "Known": "Spells",
+      "Coven": "Coven spells",
+      "None": "No Spell",
+      "cost": "Magic cost",
+      "Cast": "Cast alone",
+      "CastTogether": "Cast together",
+      "spellType": "Type",
+      "type": { "generic": "Generic", "personal": "Personal" },
+      "essences": "Required Essences",
+      "altEssences": "Essences if conditions are not met",
+      "conditions": "Conditions",
+      "ConditionsAsk": "Are the Spell's conditions met?",
+      "Ideal": "Yes",
+      "NotIdeal": "No (harder)",
+      "CostNote": "{name}: {cost} Magic spent when cast."
+    },
+    "Test": {
+      "Title": "{name}'s test",
+      "Alone": "Working alone",
+      "Together": "Working together",
+      "Roll": "Roll",
+      "NoTrait": "no Trait",
+      "NoTraitOption": "No Trait (1d6 only)",
+      "Trait": "Trait",
+      "DiceHint": "1d6 + 1d6 per Trait level.",
+      "Targets": "Required Essences",
+      "TargetsHint": "Set by the Guide. Leave everything at 0 for a roll without a goal.",
+      "Consequence": "Consequence"
+    },
+    "Coven": {
+      "Title": "Working together",
+      "Hint": "The leading Witch rolls 1d6 + their Trait; every other checked Witch adds their Trait dice.",
+      "Leader": "Leads"
+    },
+    "Rush": {
+      "Title": "Rush Hour!",
+      "Hint": "The Guide rolls 1d6, plus 1d6 for each Witch in play (Guide included).",
+      "Witches": "Witches in play",
+      "Roll": "Roll the customers",
+      "Customers": "Mood and orders",
+      "Next": "Interpret the customers' mood, then work together to get these Essences."
+    },
+    "Magic": {
+      "Title": "Fount Magic",
+      "Spend": "Spend 1 Magic",
+      "Hint": "1 Magic point ({magic} left): turn a die into your Essence, or turn a die of your Essence into any other. Describe how the Magic shows!",
+      "Die": "Die to transform",
+      "Into": "New Essence",
+      "Use": "Magic (−1)"
+    },
+    "Card": {
+      "Narrative": "Essence Dice",
+      "VibeUp": "Vibe +{n}",
+      "VibeDown": "Vibe −{n}",
+      "SpellCost": "Spell cast: {name}",
+      "SpellPaid": "Spell: {cost} Magic spent",
+      "Rolled": "Rolled",
+      "Missing": "{n} missing"
+    },
+    "Warn": {
+      "NoGM": "No Guide (GM) connected to validate this action.",
+      "NoCafe": "No Café: create a Café actor.",
+      "FountEmpty": "The Fount has run dry! It may be extinguished forever…",
+      "Incident": "The next Moment will be a Magical Incident!",
+      "NotEnoughMagic": "The Fount doesn't have enough Magic left.",
+      "NotParticipant": "None of your Witches is part of this test.",
+      "IllegalMagic": "Impossible: turn a die into your Essence, or a die of your Essence into another.",
+      "NotYours": "Only the roller or the Guide can apply the consequence.",
+      "NoWitch": "No Witch.",
+      "EmptyTrait": "This Trait has no name.",
+      "EmptyPantry": "The pantry is empty.",
+      "ThreeIngredients": "A Beverage needs exactly 3 Ingredients.",
+      "NotEnoughDoses": "Not enough doses for this Beverage.",
+      "NoMedium": "No Medium: the Guide must create one.",
+      "NoDesires": "This Medium's sought Essences haven't been rolled."
+    },
+    "Settings": {
+      "ShowFount": "Show the Fount banner",
+      "ShowFountHint": "Small banner at the top of the screen: Magic, Vibe and Incident countdown of the coven's Café."
+    }
+  }
+}

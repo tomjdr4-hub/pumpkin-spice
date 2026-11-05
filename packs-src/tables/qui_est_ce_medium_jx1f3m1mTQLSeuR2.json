@@ -1,0 +1,105 @@
+{
+  "_id": "jx1f3m1mTQLSeuR2",
+  "_key": "!tables!jx1f3m1mTQLSeuR2",
+  "name": "Qui est ce Médium ?",
+  "img": "systems/pumpkin-spice/assets/icons/medium.svg",
+  "description": "Une idée de départ ; la personne qui lance le dé a le dernier mot.",
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "aWAf0k42xZiOnYlL",
+      "_key": "!tables.results!jx1f3m1mTQLSeuR2.aWAf0k42xZiOnYlL",
+      "type": "text",
+      "name": "Autorité",
+      "description": "Une avocate pressée, un chef d'entreprise, une agente de police…",
+      "img": "systems/pumpkin-spice/assets/essences/1.svg",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xXD0QY8yn90mU23M",
+      "_key": "!tables.results!jx1f3m1mTQLSeuR2.xXD0QY8yn90mU23M",
+      "type": "text",
+      "name": "Nature",
+      "description": "Un jardinier, une randonneuse, une vétérinaire…",
+      "img": "systems/pumpkin-spice/assets/essences/2.svg",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HEMPSMiNWKXmIMol",
+      "_key": "!tables.results!jx1f3m1mTQLSeuR2.HEMPSMiNWKXmIMol",
+      "type": "text",
+      "name": "Empathie",
+      "description": "Une infirmière, un animateur de quartier, une serveuse…",
+      "img": "systems/pumpkin-spice/assets/essences/3.svg",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Z1ovB0WpxduUnWTW",
+      "_key": "!tables.results!jx1f3m1mTQLSeuR2.Z1ovB0WpxduUnWTW",
+      "type": "text",
+      "name": "Quiétude",
+      "description": "Un écrivain solitaire, une veilleuse de nuit, un moine…",
+      "img": "systems/pumpkin-spice/assets/essences/4.svg",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xW1RASyfoBXrP46U",
+      "_key": "!tables.results!jx1f3m1mTQLSeuR2.xW1RASyfoBXrP46U",
+      "type": "text",
+      "name": "Imagination",
+      "description": "Une musicienne, un graphiste, une inventrice…",
+      "img": "systems/pumpkin-spice/assets/essences/5.svg",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "45RggGCO26jI9WBS",
+      "_key": "!tables.results!jx1f3m1mTQLSeuR2.45RggGCO26jI9WBS",
+      "type": "text",
+      "name": "Sagesse",
+      "description": "Un étudiant, une professeure à lunettes, un archiviste…",
+      "img": "systems/pumpkin-spice/assets/essences/6.svg",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "folder": null,
+  "sort": 0,
+  "flags": {}
+}

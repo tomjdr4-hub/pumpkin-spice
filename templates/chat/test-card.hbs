@@ -1,0 +1,61 @@
+<div class="pumpkin-spice ps-card {{#if hasTargets}}{{#if favorable}}favorable{{else}}unfavorable{{/if}}{{/if}}">
+  <header class="ps-card-header">
+    <h3>{{title}}</h3>
+    {{#if leader}}
+    <p class="ps-card-who">
+      <img src="{{leader.img}}" alt=""> <span><b>{{leader.name}}</b> — {{leader.trait}}{{#if leader.level}} ({{leader.level}}){{/if}}</span>
+    </p>
+    {{/if}}
+    {{#if helpers.length}}
+    <p class="ps-card-helpers"><i class="fa-solid fa-people-group"></i>
+      {{#each helpers}}<span>{{this.name}} — {{this.trait}}{{#if this.level}} ({{this.level}}){{/if}}</span>{{/each}}
+    </p>
+    {{/if}}
+    {{#if spell}}<p class="ps-card-spell"><i class="fa-solid fa-wand-sparkles"></i> {{localize "PS.Card.SpellPaid" cost=spell.cost}}</p>{{/if}}
+  </header>
+
+  {{#if hasTargets}}
+  <div class="ps-card-targets">
+    <span class="ps-card-label">{{#if rushSetup}}{{localize "PS.Rush.Customers"}}{{else}}{{localize "PS.Test.Targets"}}{{/if}}</span>
+    <span class="ps-dice-row">{{#each targetList}}<img class="ps-essence {{#unless @root.rushSetup}}{{#if this.met}}met{{else}}unmet{{/if}}{{/unless}}" src="{{this.icon}}" title="{{this.label}}">{{/each}}</span>
+  </div>
+  {{/if}}
+
+  {{#unless rushSetup}}
+  <div class="ps-card-dice">
+    <span class="ps-card-label">{{localize "PS.Card.Rolled"}}</span>
+    <span class="ps-dice-row">
+      {{#each dice}}<span class="ps-die {{#if this.used}}used{{/if}} {{#if this.changed}}changed{{/if}}">{{#if this.changed}}<img class="ps-essence ghost" src="{{this.originalIcon}}" alt="">{{/if}}<img class="ps-essence" src="{{this.icon}}" title="{{this.label}}" alt="{{this.value}}"></span>{{/each}}
+    </span>
+  </div>
+  {{/unless}}
+
+  {{#if narrative}}
+  <ul class="ps-card-hints">
+    {{#each hints}}<li><img class="ps-essence small" src="{{this.icon}}" alt=""> <span><b>{{this.label}}</b> — {{this.hint}}</span></li>{{/each}}
+  </ul>
+  {{/if}}
+
+  {{#if log.length}}
+  <ul class="ps-card-log">
+    {{#each log}}<li><i class="fa-solid fa-wand-magic-sparkles"></i> {{this.name}} : <img class="ps-essence small" src="{{this.fromIcon}}" alt=""> → <img class="ps-essence small" src="{{this.toIcon}}" alt=""> <small>(−1 {{localize "PS.Cafe.magicShort"}})</small></li>{{/each}}
+  </ul>
+  {{/if}}
+
+  {{#if rushSetup}}
+  <p class="ps-card-note">{{localize "PS.Rush.Next"}}</p>
+  <div class="ps-card-buttons"><button type="button" data-ps-action="rushTogether"><i class="fa-solid fa-people-group"></i> {{localize "PS.Test.Together"}}</button></div>
+  {{else if hasTargets}}
+  <div class="ps-card-outcome">
+    {{#if favorable}}<i class="fa-solid fa-sun"></i> {{localize "PS.Outcome.favorable"}}
+    {{else}}<i class="fa-solid fa-cloud-rain"></i> {{localize "PS.Outcome.unfavorable"}} <small>({{localize "PS.Card.Missing" n=missing}})</small>{{/if}}
+  </div>
+  <div class="ps-card-buttons">
+    {{#if canMagic}}<button type="button" data-ps-action="magic"><i class="fa-solid fa-wand-magic-sparkles"></i> {{localize "PS.Magic.Use"}}</button>{{/if}}
+    {{#if consequenceLabel}}
+      {{#if applied}}<span class="ps-applied"><i class="fa-solid fa-check"></i> {{consequenceLabel}}</span>
+      {{else}}<button type="button" data-ps-action="consequence"><i class="fa-solid fa-heart"></i> {{consequenceLabel}}</button>{{/if}}
+    {{/if}}
+  </div>
+  {{/if}}
+</div>

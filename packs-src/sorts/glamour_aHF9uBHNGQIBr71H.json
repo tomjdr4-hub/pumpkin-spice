@@ -1,0 +1,19 @@
+{
+  "_id": "aHF9uBHNGQIBr71H",
+  "_key": "!items!aHF9uBHNGQIBr71H",
+  "name": "Glamour",
+  "type": "spell",
+  "img": "icons/magic/symbols/rune-sigil-black-pink.webp",
+  "system": {
+    "spellType": "generic",
+    "cost": 1,
+    "essences": "2 4",
+    "altEssences": "2 4 6 6",
+    "conditions": "<p>Le Sort touche une petite zone, ou une ou plusieurs cibles proches les unes des autres. Sinon, il faut obtenir 2 4 6 6.</p>",
+    "description": "<p>Renforce les enchantements naturels qui cachent la Magie aux yeux des gens ordinaires : effets magiques et créatures deviennent invisibles et presque imperceptibles.</p><p>Le meilleur moyen d'éviter un Incident Magique !</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {}
+}

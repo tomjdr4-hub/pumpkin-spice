@@ -1,0 +1,12 @@
+{
+  "name": "pumpkin-spice",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gen:packs": "node tools/gen-packs.mjs",
+    "build:packs": "node tools/build-packs.mjs"
+  },
+  "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^1.1.0"
+  }
+}

@@ -1,0 +1,61 @@
+<section class="tab {{tab.cssClass}}" data-tab="moments" data-group="primary">
+  <div class="ps-moments">
+    <div class="ps-moment">
+      <h4><i class="fa-solid fa-dice-d6"></i> {{localize "PS.Moment.narrative"}}</h4>
+      <p>{{localize "PS.Moment.narrativeHint"}}</p>
+      <button type="button" data-action="narrative">{{localize "PS.Card.Narrative"}}</button>
+    </div>
+    <div class="ps-moment">
+      <h4><i class="fa-solid fa-champagne-glasses"></i> {{localize "PS.Moment.opening"}}</h4>
+      <p>{{localize "PS.Moment.openingHint"}}</p>
+      <button type="button" data-action="opening">{{localize "PS.Test.Alone"}}</button>
+    </div>
+    <div class="ps-moment">
+      <h4><i class="fa-solid fa-people-group"></i> {{localize "PS.Moment.together"}}</h4>
+      <p>{{localize "PS.Moment.togetherHint"}}</p>
+      <button type="button" data-action="together">{{localize "PS.Test.Together"}}</button>
+    </div>
+    <div class="ps-moment">
+      <h4><i class="fa-solid fa-person-running"></i> {{localize "PS.Moment.rush"}}</h4>
+      <p>{{localize "PS.Moment.rushHint"}}</p>
+      <button type="button" data-action="rush">{{localize "PS.Rush.Roll"}}</button>
+    </div>
+    <div class="ps-moment">
+      <h4><i class="fa-solid fa-user"></i> {{localize "PS.Moment.medium"}}</h4>
+      <p>{{localize "PS.Moment.mediumHint" n=mediumInteractions}}</p>
+      <div class="ps-buttons">
+        {{#if isGM}}<button type="button" data-action="newMedium">{{localize "PS.Medium.New"}}</button>{{/if}}
+        <button type="button" data-action="beverage"><i class="fa-solid fa-mug-hot"></i> {{localize "PS.Beverage.Title"}}</button>
+      </div>
+      {{#if mediums.length}}
+      <ul class="ps-chips">
+        {{#each mediums as |m|}}<li data-open-actor="{{m.id}}"><img src="{{m.img}}" alt="">{{m.name}}{{#if m.bonded}} <i class="fa-solid fa-link" data-tooltip="{{localize 'PS.Medium.bonded'}}"></i>{{/if}}</li>{{/each}}
+      </ul>
+      {{/if}}
+    </div>
+    <div class="ps-moment">
+      <h4><i class="fa-solid fa-cat"></i> {{localize "PS.Moment.ume"}}</h4>
+      <p>{{localize "PS.Moment.umeHint"}}</p>
+      <div class="ps-buttons">
+        <button type="button" data-action="together">{{localize "PS.Test.Together"}}</button>
+        <button type="button" data-action="ume">{{localize "PS.UME.Fail"}}</button>
+      </div>
+    </div>
+    <div class="ps-moment">
+      <h4><i class="fa-solid fa-moon"></i> {{localize "PS.Moment.endDay"}}</h4>
+      <p>{{localize "PS.Moment.endDayHint"}}</p>
+      <button type="button" data-action="endDay">{{localize "PS.Moment.endDay"}}</button>
+    </div>
+  </div>
+
+  <h3 class="ps-section">{{localize "PS.Cafe.Coven"}}</h3>
+  <ul class="ps-chips">
+    {{#each witches as |w|}}<li data-open-actor="{{w.id}}"><img src="{{w.img}}" alt="">{{w.name}} <img class="ps-essence small" src="{{w.essenceIcon}}" alt=""></li>
+    {{else}}<li class="ps-empty">{{localize "PS.Warn.NoWitch"}}</li>{{/each}}
+  </ul>
+
+  <h3 class="ps-section">{{localize "PS.Spell.Coven"}}
+    {{#if editable}}<a class="ps-icon-btn" data-action="createItem" data-type="spell" data-tooltip="{{localize 'PS.Sheet.Create'}}"><i class="fa-solid fa-plus"></i></a>{{/if}}
+  </h3>
+  {{> "systems/pumpkin-spice/templates/actor/spell-list.hbs"}}
+</section>

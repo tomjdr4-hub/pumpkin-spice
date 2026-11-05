@@ -1,0 +1,9 @@
+{{#if spell}}<p class="ps-spell-note"><i class="fa-solid fa-wand-sparkles"></i> {{localize "PS.Spell.CostNote" name=spell.name cost=spell.cost}}</p>{{/if}}
+<div class="form-group">
+  <label>{{localize "PS.Test.Trait"}}</label>
+  <select name="trait">
+    {{#each traits}}<option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.label}}</option>{{/each}}
+  </select>
+</div>
+<p class="hint">{{localize "PS.Test.DiceHint"}}</p>
+{{> "systems/pumpkin-spice/templates/dialog/targets.hbs"}}

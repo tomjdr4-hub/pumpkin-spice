@@ -1,0 +1,271 @@
+{
+  "TYPES": {
+    "Actor": { "witch": "Sorcière", "cafe": "Café", "medium": "Médium" },
+    "Item": { "spell": "Sort", "ingredient": "Ingrédient" }
+  },
+  "PS": {
+    "Essence": {
+      "authority": "Autorité",
+      "nature": "Nature",
+      "empathy": "Empathie",
+      "stillness": "Quiétude",
+      "imagination": "Imagination",
+      "wisdom": "Sagesse"
+    },
+    "EssenceHint": {
+      "authority": "force, volonté, pouvoir qui façonne le réel",
+      "nature": "le vivant, les plantes, les bêtes, le lien à la terre",
+      "empathy": "les autres, la communauté, les liens qui se tissent",
+      "stillness": "l'intime, le secret, ce qu'on garde au fond de soi",
+      "imagination": "l'avenir, l'art, la création, les idées neuves",
+      "wisdom": "le passé, la mémoire, le savoir, l'histoire"
+    },
+    "MediumPrompt": {
+      "authority": "N'ose pas s'affirmer, et en souffre ou s'aigrit.",
+      "nature": "Étouffe sous la technologie ou la vie en ville.",
+      "empathy": "Reste distant, a du mal à aller vers les autres.",
+      "stillness": "Vit pour le regard des autres au lieu d'écouter son cœur.",
+      "imagination": "S'ennuie dans la routine, manque d'élan créatif.",
+      "wisdom": "Doute de son savoir (ou s'y fie trop) et manque de recul."
+    },
+    "Ingredient": {
+      "starryGinger": "Gingembre Étoilé",
+      "energizedMint": "Menthe Énergisée",
+      "sunlitTurmeric": "Curcuma Ensoleillé",
+      "evanescentChamomile": "Camomille Évanescente",
+      "crimsonCinnamon": "Cannelle Pourpre",
+      "lunarLavender": "Lavande Lunaire",
+      "quantity": "Doses"
+    },
+    "Archetype": {
+      "green": "Sorcière Verte",
+      "coven": "Sorcière de Coven",
+      "secular": "Sorcière Séculière",
+      "traditional": "Sorcière Traditionnelle",
+      "custom": "Autre"
+    },
+    "Location": {
+      "countryside": "Campagne",
+      "village": "Village ou petite ville",
+      "city": "Grande ville"
+    },
+    "Consequence": {
+      "none": "Aucune (narrative)",
+      "alone": "Ambiance ±1 (ex. : Grande inauguration)",
+      "rush": "Coup de feu : +1 ou −1 par Essence manquante"
+    },
+    "Outcome": {
+      "favorable": "Favorable",
+      "unfavorable": "Défavorable"
+    },
+    "Tab": {
+      "traits": "Traits",
+      "realization": "Accomplissement",
+      "biography": "Biographie",
+      "moments": "Moments",
+      "venue": "Le Café",
+      "pantry": "Garde-manger",
+      "notes": "Notes"
+    },
+    "Sheet": {
+      "Name": "Nom",
+      "Delete": "Supprimer",
+      "DeleteConfirm": "Supprimer {name} ?",
+      "Create": "Créer",
+      "Post": "Montrer dans le chat",
+      "Notes": "Notes",
+      "Description": "Description",
+      "Witch": "Fiche de Sorcière",
+      "Cafe": "Fiche de Café",
+      "Medium": "Fiche de Médium",
+      "Spell": "Fiche de Sort",
+      "Ingredient": "Fiche d'Ingrédient"
+    },
+    "Witch": {
+      "archetype": "Type de Sorcière",
+      "essence": "Essence liée",
+      "pronouns": "Pronoms",
+      "look": "Allure",
+      "OpenCafe": "Ouvrir la fiche du Café",
+      "traitPlaceholder": "Trait…",
+      "level": "Niveau d'Accomplissement (1 à 3)",
+      "rollTrait": "Test avec ce Trait",
+      "addTrait": "Ajouter un Trait",
+      "noTrait": "Sans Trait (1d6)",
+      "realizationHint": "En fin de Journée : quel Trait a compté ? Mérite-t-il d'être réécrit ? Quelle Essence votre Sorcière veut-elle étudier, et comment ?",
+      "studyEssence": "Essence étudiée",
+      "studyMethod": "Comment ?",
+      "studyMethodPlaceholder": "Un grimoire, une mentore, seule…",
+      "realization": "Chemin d'Accomplissement",
+      "biography": "Biographie",
+      "MagicRule": "Pour 1 point de Magie de la Source, après un jet : changer un dé en {essence} ({n}), ou changer un dé {essence} en n'importe quelle Essence.",
+      "Pick": "Quelle Sorcière ?"
+    },
+    "Cafe": {
+      "magic": "Magie de la Source",
+      "magicShort": "Magie",
+      "vibe": "Ambiance",
+      "incident": "Avant l'Incident",
+      "incidentHint": "Compte à rebours avant un Incident Magique : à 0, le prochain Moment joué est un Incident Magique.",
+      "day": "Journée",
+      "namePlaceholder": "Nom du Café",
+      "Active": "Café du coven",
+      "SetActive": "Définir comme Café du coven",
+      "NowActive": "{name} est désormais le Café du coven.",
+      "HowMany": "Nombre de Dés d'Essence",
+      "Coven": "Le coven",
+      "location": "Où se trouve la Source ?",
+      "style": "Style du Café",
+      "stylePlaceholder": "Figé dans le temps, flambant neuf…",
+      "description": "Description",
+      "decorations": "Mobilier et décoration",
+      "decorationsHint": "Chaque Sorcière apporte un élément de mobilier ou de décoration qui lui ressemble ; la Guide en dernier.",
+      "pantryHint": "Chaque Ingrédient capture une Essence. Un Breuvage se prépare avec 3 Ingrédients (le même peut servir plusieurs fois).",
+      "addIngredient": "Ajouter un Ingrédient"
+    },
+    "Moment": {
+      "narrative": "Dé d'Essence",
+      "narrativeHint": "Pour ajouter un détail à la scène : lancez un ou plusieurs dés et interprétez les Essences. Commande de chat : /essence 2",
+      "opening": "Grande inauguration",
+      "openingHint": "Agir seule : chaque Sorcière fait un test. Chaque résultat Favorable donne +1 Ambiance, chaque Défavorable −1.",
+      "together": "Agir ensemble",
+      "togetherHint": "Une Sorcière mène et lance tous les dés ; chacune ajoute les dés de son Trait. Toutes peuvent utiliser leur Magie sur n'importe quel dé.",
+      "rush": "Coup de feu !",
+      "rushHint": "La Guide lance 1d6 + 1d6 par Sorcière : ce sont les Essences à obtenir en agissant ensemble. Favorable : +1 Ambiance ; Défavorable : −1 par Essence manquante.",
+      "medium": "Médium",
+      "mediumHint": "La Guide incarne le Médium et tire en secret 3 Essences. Les Sorcières peuvent interagir {n} fois (1 + Ambiance), puis préparent le Breuvage.",
+      "ume": "Événement Magique Inattendu",
+      "umeHint": "Objectifs préliminaires (un test chacune), puis souvent un Sort à lancer ensemble. En cas d'échec, le compte à rebours d'Incident baisse.",
+      "endDay": "Fin de la Journée",
+      "endDayHint": "Passe à la Journée suivante et rappelle les questions d'Accomplissement."
+    },
+    "UME": {
+      "Fail": "Échec : Incident −1",
+      "Confirm": "L'É.M.I. a mal tourné : réduire de 1 le compte à rebours avant l'Incident Magique ?",
+      "Failed": "L'É.M.I. a mal tourné, les gens vont en parler…"
+    },
+    "EndDay": {
+      "Confirm": "Terminer la Journée {day} ?",
+      "Title": "Fin de la Journée {day}",
+      "Q1": "Quel Trait de chaque Sorcière a été décisif aujourd'hui ? Les événements justifient-ils de le réécrire, et comment ?",
+      "Q2": "Quelle Essence chaque Sorcière veut-elle étudier ? Avec quel livre, quelle mentore, ou seule — et comment ?"
+    },
+    "Medium": {
+      "New": "Nouveau Médium",
+      "Label": "Médium",
+      "Unknown": "Le Médium",
+      "WhoIs": "Qui est ce Médium ?",
+      "occupation": "Métier, rôle",
+      "inspiration": "Inspiration",
+      "inspirationHint": "Lancer un Dé d'Essence pour imaginer qui est ce Médium",
+      "bonded": "Lien noué avec la Source",
+      "visits": "Visites",
+      "desires": "Essences recherchées (secret)",
+      "noDesires": "Pas encore tirées",
+      "rollDesires": "Tirer 3d6 en secret",
+      "promptsHint": "Pistes pour incarner le Médium selon les Essences tirées :",
+      "countdown": "Interactions restantes",
+      "start": "Commencer ({n})",
+      "interact": "Une interaction",
+      "description": "Apparence et histoire",
+      "SecretDesires": "{name} recherche en secret :",
+      "CountdownLeft": "{name} : encore {n} interaction(s) avant de vouloir son Breuvage.",
+      "CountdownDone": "{name} attend maintenant son Breuvage !"
+    },
+    "Beverage": {
+      "Title": "Préparer un Breuvage",
+      "Prepare": "Préparer",
+      "Hint": "Choisissez 3 Ingrédients du garde-manger. Chaque Essence juste rapporte 1 Magie ; le Breuvage parfait rapporte 1d6 Magie en plus.",
+      "Ingredient": "Ingrédient",
+      "GuideChooses": "— la Guide choisira —",
+      "For": "Breuvage pour {name}",
+      "Wanted": "Recherché",
+      "Perfect": "Breuvage parfait ! Le lien avec la Source s'épanouit (+{bonus}).",
+      "Correct": "{n} Essence(s) juste(s).",
+      "Gain": "La Source gagne {gain} Magie (total : {magic}).",
+      "Waiting": "Le Breuvage fume sur le comptoir… La Guide le sert au Médium.",
+      "Serve": "Servir (Guide)"
+    },
+    "Spell": {
+      "Known": "Sorts",
+      "Coven": "Sorts du coven",
+      "None": "Aucun Sort",
+      "cost": "Coût en Magie",
+      "Cast": "Lancer seule",
+      "CastTogether": "Lancer ensemble",
+      "spellType": "Type",
+      "type": { "generic": "Générique", "personal": "Personnel" },
+      "essences": "Essences requises",
+      "altEssences": "Essences si conditions non remplies",
+      "conditions": "Conditions",
+      "ConditionsAsk": "Les conditions du Sort sont-elles réunies ?",
+      "Ideal": "Oui",
+      "NotIdeal": "Non (plus difficile)",
+      "CostNote": "{name} : {cost} Magie dépensée au lancement."
+    },
+    "Test": {
+      "Title": "Test de {name}",
+      "Alone": "Agir seule",
+      "Together": "Agir ensemble",
+      "Roll": "Lancer",
+      "NoTrait": "sans Trait",
+      "NoTraitOption": "Aucun Trait (1d6 seulement)",
+      "Trait": "Trait",
+      "DiceHint": "1d6 + 1d6 par niveau du Trait.",
+      "Targets": "Essences requises",
+      "TargetsHint": "Fixées par la Guide. Laissez tout à 0 pour un jet sans objectif.",
+      "Consequence": "Conséquence"
+    },
+    "Coven": {
+      "Title": "Agir ensemble",
+      "Hint": "La Sorcière qui mène lance 1d6 + son Trait ; chaque autre Sorcière cochée apporte les dés de son Trait.",
+      "Leader": "Mène"
+    },
+    "Rush": {
+      "Title": "Coup de feu !",
+      "Hint": "La Guide lance 1d6, plus 1d6 par Sorcière en jeu (Guide comprise).",
+      "Witches": "Sorcières en jeu",
+      "Roll": "Lancer les clients",
+      "Customers": "Humeur et commandes",
+      "Next": "Interprétez l'humeur des clients, puis agissez ensemble pour obtenir ces Essences."
+    },
+    "Magic": {
+      "Title": "Magie de la Source",
+      "Spend": "Dépenser 1 Magie",
+      "Hint": "1 point de Magie (il en reste {magic}) : changer un dé en votre Essence, ou changer un dé de votre Essence en n'importe quelle autre. Décrivez comment la Magie se manifeste !",
+      "Die": "Dé à transformer",
+      "Into": "Nouvelle Essence",
+      "Use": "Magie (−1)"
+    },
+    "Card": {
+      "Narrative": "Dés d'Essence",
+      "VibeUp": "Ambiance +{n}",
+      "VibeDown": "Ambiance −{n}",
+      "SpellCost": "Sort lancé : {name}",
+      "SpellPaid": "Sort : {cost} Magie dépensée",
+      "Rolled": "Obtenu",
+      "Missing": "{n} manquante(s)"
+    },
+    "Warn": {
+      "NoGM": "Aucune Guide (MJ) connectée pour valider cette action.",
+      "NoCafe": "Aucun Café : créez un acteur Café.",
+      "FountEmpty": "La Source est à sec ! Elle risque de s'éteindre à jamais…",
+      "Incident": "Le prochain Moment sera un Incident Magique !",
+      "NotEnoughMagic": "La Source n'a plus assez de Magie.",
+      "NotParticipant": "Aucune de vos Sorcières ne participe à ce test.",
+      "IllegalMagic": "Transformation impossible : changez un dé en votre Essence, ou un dé de votre Essence.",
+      "NotYours": "Seule l'autrice du jet ou la Guide peut appliquer la conséquence.",
+      "NoWitch": "Aucune Sorcière.",
+      "EmptyTrait": "Ce Trait n'a pas de nom.",
+      "EmptyPantry": "Le garde-manger est vide.",
+      "ThreeIngredients": "Un Breuvage demande exactement 3 Ingrédients.",
+      "NotEnoughDoses": "Pas assez de doses pour ce Breuvage.",
+      "NoMedium": "Aucun Médium : la Guide doit en créer un.",
+      "NoDesires": "Les Essences recherchées par ce Médium n'ont pas été tirées."
+    },
+    "Settings": {
+      "ShowFount": "Afficher le bandeau de la Source",
+      "ShowFountHint": "Petit bandeau en haut de l'écran : Magie, Ambiance et compte à rebours d'Incident du Café du coven."
+    }
+  }
+}

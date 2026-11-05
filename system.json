@@ -1,0 +1,115 @@
+{
+  "id": "pumpkin-spice",
+  "title": "Pumpkin Spice",
+  "description": "Système non officiel pour Pumpkin Spice, le JdR cosy où un coven de Sorcières tient un Café magique (Acheron Games). Dés d'Essence, Source de Magie partagée, Ambiance, Médiums et Breuvages.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "tomjdr4-hub",
+      "url": "https://github.com/tomjdr4-hub"
+    }
+  ],
+  "esmodules": [
+    "pumpkin-spice.mjs"
+  ],
+  "styles": [
+    "styles/pumpkin-spice.css"
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "witch": {
+        "htmlFields": ["biography", "realization", "notes"]
+      },
+      "cafe": {
+        "htmlFields": ["description", "decorations", "notes"]
+      },
+      "medium": {
+        "htmlFields": ["description", "notes"]
+      }
+    },
+    "Item": {
+      "spell": {
+        "htmlFields": ["description", "conditions"]
+      },
+      "ingredient": {
+        "htmlFields": ["description"]
+      }
+    }
+  },
+  "primaryTokenAttribute": "magic",
+  "secondaryTokenAttribute": "vibe",
+  "socket": true,
+  "grid": {
+    "distance": 1,
+    "units": "m"
+  },
+  "packs": [
+    {
+      "name": "sorcieres",
+      "label": "Sorcières prétirées",
+      "path": "packs/sorcieres",
+      "type": "Actor",
+      "system": "pumpkin-spice",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    },
+    {
+      "name": "sorts",
+      "label": "Sorts",
+      "path": "packs/sorts",
+      "type": "Item",
+      "system": "pumpkin-spice",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    },
+    {
+      "name": "ingredients",
+      "label": "Ingrédients",
+      "path": "packs/ingredients",
+      "type": "Item",
+      "system": "pumpkin-spice",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    },
+    {
+      "name": "tables",
+      "label": "Tables de la Guide",
+      "path": "packs/tables",
+      "type": "RollTable",
+      "system": "pumpkin-spice",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    },
+    {
+      "name": "aide",
+      "label": "Aide de jeu",
+      "path": "packs/aide",
+      "type": "JournalEntry",
+      "system": "pumpkin-spice",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    }
+  ],
+  "packFolders": [
+    {
+      "name": "Pumpkin Spice",
+      "sorting": "m",
+      "color": "#d9822b",
+      "packs": ["sorcieres", "sorts", "ingredients", "tables", "aide"]
+    }
+  ],
+  "url": "https://github.com/tomjdr4-hub/pumpkin-spice",
+  "manifest": "https://github.com/tomjdr4-hub/pumpkin-spice/releases/latest/download/system.json",
+  "download": "https://github.com/tomjdr4-hub/pumpkin-spice/releases/latest/download/pumpkin-spice.zip"
+}

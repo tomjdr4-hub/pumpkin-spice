@@ -1,0 +1,16 @@
+{
+  "_id": "iPXlRBdj7QWboFfW",
+  "_key": "!items!iPXlRBdj7QWboFfW",
+  "name": "Gingembre Étoilé",
+  "type": "ingredient",
+  "img": "systems/pumpkin-spice/assets/essences/1.svg",
+  "system": {
+    "essence": 1,
+    "quantity": 3,
+    "description": "<p>Une racine piquante qui scintille comme un ciel d'hiver.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 100,
+  "flags": {}
+}

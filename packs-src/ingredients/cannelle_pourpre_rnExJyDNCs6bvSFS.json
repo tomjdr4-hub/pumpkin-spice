@@ -1,0 +1,16 @@
+{
+  "_id": "rnExJyDNCs6bvSFS",
+  "_key": "!items!rnExJyDNCs6bvSFS",
+  "name": "Cannelle Pourpre",
+  "type": "ingredient",
+  "img": "systems/pumpkin-spice/assets/essences/5.svg",
+  "system": {
+    "essence": 5,
+    "quantity": 3,
+    "description": "<p>Des bâtons d'un rouge profond, au parfum de rêverie.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 500,
+  "flags": {}
+}

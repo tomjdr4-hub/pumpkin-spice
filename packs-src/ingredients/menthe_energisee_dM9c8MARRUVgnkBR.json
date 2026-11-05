@@ -1,0 +1,16 @@
+{
+  "_id": "dM9c8MARRUVgnkBR",
+  "_key": "!items!dM9c8MARRUVgnkBR",
+  "name": "Menthe Énergisée",
+  "type": "ingredient",
+  "img": "systems/pumpkin-spice/assets/essences/2.svg",
+  "system": {
+    "essence": 2,
+    "quantity": 3,
+    "description": "<p>Des feuilles vives qui fourmillent sous les doigts.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 200,
+  "flags": {}
+}

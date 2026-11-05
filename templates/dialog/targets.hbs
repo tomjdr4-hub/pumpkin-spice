@@ -1,0 +1,18 @@
+<fieldset class="ps-targets">
+  <legend>{{localize "PS.Test.Targets"}}</legend>
+  <p class="hint">{{localize "PS.Test.TargetsHint"}}</p>
+  <div class="ps-target-grid">
+    {{#each essences as |e|}}
+    <label class="ps-target" data-tooltip="{{e.label}}">
+      <img class="ps-essence" src="{{e.icon}}" alt="{{e.value}}">
+      <input type="number" name="t{{e.value}}" value="{{e.count}}" min="0" max="6">
+    </label>
+    {{/each}}
+  </div>
+</fieldset>
+<div class="form-group">
+  <label>{{localize "PS.Test.Consequence"}}</label>
+  <select name="consequence">
+    {{#each consequences}}<option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.label}}</option>{{/each}}
+  </select>
+</div>

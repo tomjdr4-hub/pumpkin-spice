@@ -1,0 +1,58 @@
+{
+  "_id": "YTp22O1uIx0leu1h",
+  "_key": "!actors!YTp22O1uIx0leu1h",
+  "name": "Sorcière Traditionnelle",
+  "type": "witch",
+  "img": "systems/pumpkin-spice/assets/icons/witch.svg",
+  "system": {
+    "archetype": "traditional",
+    "essence": 6,
+    "pronouns": "",
+    "look": "",
+    "traits": [
+      {
+        "name": "Chercheuse méthodique",
+        "level": 1
+      },
+      {
+        "name": "Faire honneur à mon nom",
+        "level": 1
+      },
+      {
+        "name": "Transmettre la vérité",
+        "level": 1
+      },
+      {
+        "name": "Indépendante",
+        "level": 1
+      },
+      {
+        "name": "Oratrice éloquente",
+        "level": 1
+      },
+      {
+        "name": "Patiente",
+        "level": 1
+      }
+    ],
+    "study": {
+      "essence": null,
+      "method": ""
+    },
+    "biography": "<p>Vieux grimoires, nuits blanches et ciel étoilé : elle apprend à l'ancienne, page après page.</p><p><em>Donnez-lui un nom, et imaginez ce que chaque Trait dit de son passé.</em></p>",
+    "realization": "",
+    "notes": ""
+  },
+  "prototypeToken": {
+    "name": "Sorcière Traditionnelle",
+    "actorLink": true,
+    "texture": {
+      "src": "systems/pumpkin-spice/assets/icons/witch.svg"
+    }
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 300,
+  "flags": {}
+}

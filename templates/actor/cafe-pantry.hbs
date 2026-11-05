@@ -1,0 +1,24 @@
+<section class="tab {{tab.cssClass}}" data-tab="pantry" data-group="primary">
+  <p class="ps-rule">{{localize "PS.Cafe.pantryHint"}}</p>
+  <ul class="ps-items ps-pantry">
+    {{#each ingredients as |ing|}}
+    <li class="ps-item" data-item-id="{{ing.id}}">
+      <img src="{{ing.img}}" alt="" data-action="editItem">
+      <a class="ps-item-name" data-action="editItem">{{ing.name}}</a>
+      <span class="ps-item-essences"><img class="ps-essence small" src="{{ing.essenceIcon}}" alt=""> {{ing.essenceLabel}}</span>
+      <span class="ps-counter small {{#unless ing.quantity}}danger{{/unless}}">
+        <a data-action="quantity" data-delta="-1"><i class="fa-solid fa-minus"></i></a>
+        <input type="number" value="{{ing.quantity}}" min="0" data-item-field="system.quantity">
+        <a data-action="quantity" data-delta="1"><i class="fa-solid fa-plus"></i></a>
+      </span>
+      {{#if @root.editable}}<a class="ps-icon-btn" data-action="deleteItem" data-tooltip="{{localize 'PS.Sheet.Delete'}}"><i class="fa-solid fa-trash"></i></a>{{/if}}
+    </li>
+    {{else}}
+    <li class="ps-empty">{{localize "PS.Warn.EmptyPantry"}}</li>
+    {{/each}}
+  </ul>
+  <div class="ps-buttons">
+    {{#if editable}}<button type="button" data-action="createItem" data-type="ingredient"><i class="fa-solid fa-plus"></i> {{localize "PS.Cafe.addIngredient"}}</button>{{/if}}
+    <button type="button" data-action="beverage"><i class="fa-solid fa-mug-hot"></i> {{localize "PS.Beverage.Title"}}</button>
+  </div>
+</section>

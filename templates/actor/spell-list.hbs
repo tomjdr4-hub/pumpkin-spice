@@ -1,0 +1,16 @@
+<ul class="ps-items">
+  {{#each spells as |spell|}}
+  <li class="ps-item" data-item-id="{{spell.id}}">
+    <img src="{{spell.img}}" alt="" data-action="editItem">
+    <a class="ps-item-name" data-action="editItem">{{spell.name}}</a>
+    <span class="ps-item-essences">{{#each spell.essences}}<img class="ps-essence small" src="{{this.icon}}" title="{{this.label}}">{{/each}}</span>
+    <span class="ps-cost" data-tooltip="{{localize 'PS.Spell.cost'}}"><i class="fa-solid fa-droplet"></i> {{spell.cost}}</span>
+    <a class="ps-icon-btn" data-action="castSpell" data-tooltip="{{localize 'PS.Spell.Cast'}}"><i class="fa-solid fa-wand-sparkles"></i></a>
+    <a class="ps-icon-btn" data-action="castTogether" data-tooltip="{{localize 'PS.Spell.CastTogether'}}"><i class="fa-solid fa-people-group"></i></a>
+    <a class="ps-icon-btn" data-action="postItem" data-tooltip="{{localize 'PS.Sheet.Post'}}"><i class="fa-solid fa-comment"></i></a>
+    {{#if @root.editable}}<a class="ps-icon-btn" data-action="deleteItem" data-tooltip="{{localize 'PS.Sheet.Delete'}}"><i class="fa-solid fa-trash"></i></a>{{/if}}
+  </li>
+  {{else}}
+  <li class="ps-empty">{{localize "PS.Spell.None"}}</li>
+  {{/each}}
+</ul>

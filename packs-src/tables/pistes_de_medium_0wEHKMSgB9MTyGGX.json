@@ -1,0 +1,105 @@
+{
+  "_id": "0wEHKMSgB9MTyGGX",
+  "_key": "!tables!0wEHKMSgB9MTyGGX",
+  "name": "Pistes de Médium",
+  "img": "systems/pumpkin-spice/assets/icons/medium.svg",
+  "description": "Ce qui tracasse un Médium, selon l'Essence tirée.",
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "757ANVdrx9VrjBZy",
+      "_key": "!tables.results!0wEHKMSgB9MTyGGX.757ANVdrx9VrjBZy",
+      "type": "text",
+      "name": "Autorité",
+      "description": "N'ose pas s'affirmer, et en souffre ou s'aigrit.",
+      "img": "systems/pumpkin-spice/assets/essences/1.svg",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "y6nSECBSkWeq4IW9",
+      "_key": "!tables.results!0wEHKMSgB9MTyGGX.y6nSECBSkWeq4IW9",
+      "type": "text",
+      "name": "Nature",
+      "description": "Étouffe sous la technologie ou la vie en ville.",
+      "img": "systems/pumpkin-spice/assets/essences/2.svg",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Gz568DqBhyuPmlu0",
+      "_key": "!tables.results!0wEHKMSgB9MTyGGX.Gz568DqBhyuPmlu0",
+      "type": "text",
+      "name": "Empathie",
+      "description": "Reste distant, a du mal à aller vers les autres.",
+      "img": "systems/pumpkin-spice/assets/essences/3.svg",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HsMROXOeF1r7qDao",
+      "_key": "!tables.results!0wEHKMSgB9MTyGGX.HsMROXOeF1r7qDao",
+      "type": "text",
+      "name": "Quiétude",
+      "description": "Vit pour le regard des autres au lieu d'écouter son cœur.",
+      "img": "systems/pumpkin-spice/assets/essences/4.svg",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OMVCFHWoAzYNnaHT",
+      "_key": "!tables.results!0wEHKMSgB9MTyGGX.OMVCFHWoAzYNnaHT",
+      "type": "text",
+      "name": "Imagination",
+      "description": "S'ennuie dans la routine, manque d'élan créatif.",
+      "img": "systems/pumpkin-spice/assets/essences/5.svg",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UFEaqhxN7WiFY2MB",
+      "_key": "!tables.results!0wEHKMSgB9MTyGGX.UFEaqhxN7WiFY2MB",
+      "type": "text",
+      "name": "Sagesse",
+      "description": "Doute de son savoir (ou s'y fie trop) et manque de recul.",
+      "img": "systems/pumpkin-spice/assets/essences/6.svg",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "folder": null,
+  "sort": 0,
+  "flags": {}
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "GqSqeNPOGzC2mkdN",
+  "_key": "!actors!GqSqeNPOGzC2mkdN",
+  "name": "Sorcière Séculière",
+  "type": "witch",
+  "img": "systems/pumpkin-spice/assets/icons/witch.svg",
+  "system": {
+    "archetype": "secular",
+    "essence": 5,
+    "pronouns": "",
+    "look": "",
+    "traits": [
+      {
+        "name": "Bricoleuse habile",
+        "level": 1
+      },
+      {
+        "name": "Comprendre la vraie beauté",
+        "level": 1
+      },
+      {
+        "name": "Créer des merveilles",
+        "level": 1
+      },
+      {
+        "name": "Artiste renommée",
+        "level": 1
+      },
+      {
+        "name": "Mystérieuse",
+        "level": 1
+      },
+      {
+        "name": "",
+        "level": 1
+      }
+    ],
+    "study": {
+      "essence": null,
+      "method": ""
+    },
+    "biography": "<p>Pour elle, la sorcellerie est un artisanat : elle aime ce qui se fabrique de ses mains, avec un soupçon de Magie.</p><p><em>Donnez-lui un nom, et imaginez ce que chaque Trait dit de son passé.</em></p>",
+    "realization": "",
+    "notes": ""
+  },
+  "prototypeToken": {
+    "name": "Sorcière Séculière",
+    "actorLink": true,
+    "texture": {
+      "src": "systems/pumpkin-spice/assets/icons/witch.svg"
+    }
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 200,
+  "flags": {}
+}

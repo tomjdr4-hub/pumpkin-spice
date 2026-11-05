@@ -1,0 +1,58 @@
+{
+  "_id": "PYcbSLeMaibyA5Vk",
+  "_key": "!actors!PYcbSLeMaibyA5Vk",
+  "name": "Sorcière Verte",
+  "type": "witch",
+  "img": "systems/pumpkin-spice/assets/icons/witch.svg",
+  "system": {
+    "archetype": "green",
+    "essence": 2,
+    "pronouns": "",
+    "look": "",
+    "traits": [
+      {
+        "name": "Ne faire qu'un avec la nature",
+        "level": 1
+      },
+      {
+        "name": "Protéger mes proches",
+        "level": 1
+      },
+      {
+        "name": "Soigner le corps",
+        "level": 1
+      },
+      {
+        "name": "Curieuse",
+        "level": 1
+      },
+      {
+        "name": "Amie des animaux",
+        "level": 1
+      },
+      {
+        "name": "Imprévisible",
+        "level": 1
+      }
+    ],
+    "study": {
+      "essence": null,
+      "method": ""
+    },
+    "biography": "<p>Elle sent la Magie partout où pousse quelque chose de vivant, et ne se lasse jamais de s'en émerveiller.</p><p><em>Donnez-lui un nom, et imaginez ce que chaque Trait dit de son passé.</em></p>",
+    "realization": "",
+    "notes": ""
+  },
+  "prototypeToken": {
+    "name": "Sorcière Verte",
+    "actorLink": true,
+    "texture": {
+      "src": "systems/pumpkin-spice/assets/icons/witch.svg"
+    }
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {}
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "xJYuEmonAwzLuK6F",
+  "_key": "!actors!xJYuEmonAwzLuK6F",
+  "name": "Sorcière de Coven",
+  "type": "witch",
+  "img": "systems/pumpkin-spice/assets/icons/witch.svg",
+  "system": {
+    "archetype": "coven",
+    "essence": 3,
+    "pronouns": "",
+    "look": "",
+    "traits": [
+      {
+        "name": "Âme de la fête",
+        "level": 1
+      },
+      {
+        "name": "Combattre la corruption de la planète",
+        "level": 1
+      },
+      {
+        "name": "Apaiser les gens",
+        "level": 1
+      },
+      {
+        "name": "Charismatique",
+        "level": 1
+      },
+      {
+        "name": "À l'écoute",
+        "level": 1
+      },
+      {
+        "name": "Bienveillante",
+        "level": 1
+      }
+    ],
+    "study": {
+      "essence": null,
+      "method": ""
+    },
+    "biography": "<p>Élevée au milieu d'autres Sorcières, elle ne conçoit la Magie qu'à plusieurs : la vie de coven est sa force.</p><p><em>Donnez-lui un nom, et imaginez ce que chaque Trait dit de son passé.</em></p>",
+    "realization": "",
+    "notes": ""
+  },
+  "prototypeToken": {
+    "name": "Sorcière de Coven",
+    "actorLink": true,
+    "texture": {
+      "src": "systems/pumpkin-spice/assets/icons/witch.svg"
+    }
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 100,
+  "flags": {}
+}

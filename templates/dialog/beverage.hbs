@@ -1,0 +1,20 @@
+<p class="hint">{{localize "PS.Beverage.Hint"}}</p>
+{{#each slots as |slot|}}
+<div class="form-group">
+  <label>{{localize "PS.Beverage.Ingredient"}} {{slot.n}}</label>
+  <select name="{{slot.name}}">
+    {{#each slot.options}}<option value="{{this.id}}" {{#if this.disabled}}disabled{{/if}}>{{this.label}}</option>{{/each}}
+  </select>
+</div>
+{{/each}}
+<div class="form-group">
+  <label>{{localize "PS.Medium.Label"}}</label>
+  {{#if mediums.length}}
+  <select name="medium">
+    <option value="">{{localize "PS.Beverage.GuideChooses"}}</option>
+    {{#each mediums}}<option value="{{this.id}}" {{#if this.selected}}selected{{/if}}>{{this.name}}</option>{{/each}}
+  </select>
+  {{else}}
+  <input type="text" name="mediumName" placeholder="{{localize 'PS.Medium.Unknown'}}">
+  {{/if}}
+</div>

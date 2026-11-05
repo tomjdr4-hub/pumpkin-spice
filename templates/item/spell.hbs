@@ -1,0 +1,31 @@
+<div class="ps-item-body">
+  <header class="ps-header">
+    <img class="ps-portrait small" src="{{item.img}}" data-action="editImage" data-edit="img" alt="{{item.name}}">
+    <div class="ps-header-main">
+      <input class="ps-name" type="text" name="name" value="{{item.name}}">
+      <div class="ps-row">
+        <label>{{localize "PS.Spell.spellType"}}
+          <select name="system.spellType">{{selectOptions types selected=system.spellType valueAttr="value" labelAttr="label"}}</select>
+        </label>
+        <label>{{localize "PS.Spell.cost"}}<input type="number" name="system.cost" value="{{system.cost}}" min="0" class="ps-short"></label>
+        <button type="button" data-action="cast"><i class="fa-solid fa-wand-sparkles"></i> {{localize "PS.Spell.Cast"}}</button>
+      </div>
+    </div>
+  </header>
+  <div class="ps-row">
+    <label class="ps-grow">{{localize "PS.Spell.essences"}}
+      <input type="text" name="system.essences" value="{{system.essences}}" placeholder="2 4">
+    </label>
+    <span class="ps-dice-row">{{#each essenceIcons}}<img class="ps-essence" src="{{this.icon}}" title="{{this.label}}">{{/each}}</span>
+  </div>
+  <div class="ps-row">
+    <label class="ps-grow">{{localize "PS.Spell.altEssences"}}
+      <input type="text" name="system.altEssences" value="{{system.altEssences}}" placeholder="2 4 6 6">
+    </label>
+    <span class="ps-dice-row">{{#each altIcons}}<img class="ps-essence" src="{{this.icon}}" title="{{this.label}}">{{/each}}</span>
+  </div>
+  <h3 class="ps-section">{{localize "PS.Spell.conditions"}}</h3>
+  <prose-mirror toggled name="system.conditions" value="{{system.conditions}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.conditions}}}</prose-mirror>
+  <h3 class="ps-section">{{localize "PS.Sheet.Description"}}</h3>
+  <prose-mirror toggled name="system.description" value="{{system.description}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.description}}}</prose-mirror>
+</div>

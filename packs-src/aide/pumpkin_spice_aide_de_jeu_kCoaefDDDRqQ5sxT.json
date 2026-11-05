@@ -1,0 +1,74 @@
+{
+  "_id": "kCoaefDDDRqQ5sxT",
+  "_key": "!journal!kCoaefDDDRqQ5sxT",
+  "name": "Pumpkin Spice — Aide de jeu",
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "pages": [
+    {
+      "_id": "Zz7bq860V5BDKIjw",
+      "_key": "!journal.pages!kCoaefDDDRqQ5sxT.Zz7bq860V5BDKIjw",
+      "name": "Utiliser le système",
+      "type": "text",
+      "text": {
+        "content": "<h2>Mise en place</h2><ul><li>Créez un acteur <b>Café</b> : c'est la fiche partagée du coven. Il démarre avec 10 Magie, 3 en Ambiance, un compte à rebours d'Incident à 4 et 3 doses de chaque Ingrédient de base. Tous les joueurs peuvent la modifier.</li><li>Importez les <b>Sorcières prétirées</b> (ou créez les vôtres) et attribuez-les aux joueurs (Configuration de l'utilisateur → Personnage).</li><li>Importez le Sort <b>Glamour</b> sur la fiche du Café (Sorts du coven) ou d'une Sorcière.</li><li>Le bandeau en haut de l'écran affiche en permanence la Magie de la Source, l'Ambiance et le compte à rebours d'Incident.</li></ul><h2>Tests</h2><ul><li><b>Agir seule</b> : sur la fiche de Sorcière, cliquez sur le bouton de dés d'un Trait. Indiquez les Essences fixées par la Guide et la conséquence (aucune, Ambiance ±1, Coup de feu).</li><li><b>Agir ensemble</b> : choisissez qui mène et le Trait de chacune ; tous les dés sont lancés ensemble.</li><li>Sur la carte du jet, le bouton <b>Magie</b> dépense 1 point de la Source pour transformer un dé selon l'Essence de la Sorcière. Chaque participante peut l'utiliser, plusieurs fois.</li><li>Le bouton d'<b>Ambiance</b> applique la conséquence au Café (une seule fois ; la Magie n'est plus utilisable ensuite).</li><li>Commande de chat <code>/essence 3</code> : lance 3 Dés d'Essence narratifs.</li></ul><h2>Médiums et Breuvages</h2><ul><li>La Guide crée un <b>Médium</b> (onglet Moments du Café), tire en secret ses 3 Essences et lance le compte à rebours (1 + Ambiance).</li><li>Les Sorcières préparent le <b>Breuvage</b> avec 3 Ingrédients ; la Guide clique sur <b>Servir</b> : doses consommées, Magie gagnée, 1d6 en plus pour un Breuvage parfait.</li></ul>",
+        "format": 1
+      },
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "sort": 100,
+      "flags": {}
+    },
+    {
+      "_id": "DeCoUwvp4weWuZNM",
+      "_key": "!journal.pages!kCoaefDDDRqQ5sxT.DeCoUwvp4weWuZNM",
+      "name": "Les règles en bref",
+      "type": "text",
+      "text": {
+        "content": "<h2>Les Essences</h2><p>Chaque face du d6 est une Essence : 1 Autorité, 2 Nature, 3 Empathie, 4 Quiétude, 5 Imagination, 6 Sagesse. On n'additionne jamais : on regarde quelles Essences sortent.</p><h2>Tests</h2><ul><li>La Sorcière décrit ce qu'elle fait et choisit un Trait ; la Guide choisit la ou les Essences requises.</li><li>On lance 1d6 + 1d6 par niveau du Trait (1 à 3). Sans Trait adapté : 1d6 seulement.</li><li>Toutes les Essences requises sont obtenues : <b>Favorable</b>. Sinon : <b>Défavorable</b>. Le résultat oriente l'histoire ; celle qui lance raconte.</li></ul><h2>La Source et la Magie</h2><ul><li>La Source a des points de Magie partagés par tout le coven (10 au départ). À 0, elle risque de s'éteindre.</li><li>Après un jet, pour 1 point : changer un dé en l'Essence de la Sorcière, ou changer un dé de son Essence en n'importe quelle autre. Autant de fois qu'on veut payer.</li><li>Les Sorts coûtent de la Magie et demandent une combinaison d'Essences.</li></ul><h2>L'Ambiance</h2><p>De 0 à 6 (3 au départ) : à quel point le Café est accueillant. Elle fixe notamment le nombre d'interactions possibles avec un Médium (1 + Ambiance).</p>",
+        "format": 1
+      },
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "sort": 200,
+      "flags": {}
+    },
+    {
+      "_id": "34ixyF8fGKNrZ78g",
+      "_key": "!journal.pages!kCoaefDDDRqQ5sxT.34ixyF8fGKNrZ78g",
+      "name": "La première Journée",
+      "type": "text",
+      "text": {
+        "content": "<p>Le kit de démarrage enchaîne quatre Moments. Le système propose un bouton pour chacun dans l'onglet <b>Moments</b> du Café.</p><h3>1. Grande inauguration</h3><p>Chacune agit seule pour réussir l'ouverture. Conséquence <b>Ambiance ±1</b> sur chaque test.</p><h3>2. Coup de feu !</h3><p>La Guide lance 1d6 + 1d6 par Sorcière : l'humeur des clients et les Essences à obtenir. Le coven agit ensemble. Favorable : +1 Ambiance ; Défavorable : −1 par Essence manquante.</p><h3>3. Le premier Médium</h3><p>On imagine le Médium (un Dé d'Essence peut aider), la Guide tire en secret ses 3 Essences. Les Sorcières lui parlent, puis préparent un Breuvage : +1 Magie par Essence juste, +1d6 si tout est juste.</p><h3>4. Le premier É.M.I.</h3><p>Un Événement Magique Inattendu : souvent des objectifs préliminaires (un test chacune), puis un Sort lancé ensemble. En cas d'échec, le compte à rebours d'Incident baisse ; à 0, le prochain Moment est un Incident Magique.</p><h3>Fin de la Journée</h3><p>Chaque Sorcière se demande quel Trait a compté (et s'il mérite d'être réécrit), et quelle Essence elle veut étudier, et comment.</p>",
+        "format": 1
+      },
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "sort": 300,
+      "flags": {}
+    },
+    {
+      "_id": "7AjqQEMu2idWcL71",
+      "_key": "!journal.pages!kCoaefDDDRqQ5sxT.7AjqQEMu2idWcL71",
+      "name": "É.M.I. : les chats esprits",
+      "type": "text",
+      "text": {
+        "content": "<p>Attirés par le réveil de la Source, des chats esprits facétieux deviennent à moitié visibles et sèment la pagaille dans le Café, sous les yeux des derniers clients.</p><ul><li>Il y a <b>1 chat pour chaque tranche de 3 Magie</b> dans la Source.</li><li><b>Objectif préliminaire</b> — rassembler les chats. Un test par Sorcière, agir seule. Essences : 2 ou 1 (ou autre selon l'action). Si tous les chats ne sont pas regroupés, le Glamour devient plus difficile (2 4 6 6).</li><li><b>Résolution</b> — lancer <b>Glamour</b> ensemble (coût 1, Essences 2 4).</li></ul><p><b>Favorable</b> : les chats redeviennent invisibles aux gens ordinaires et continuent de jouer en paix.</p><p><b>Défavorable</b> : les chats restent tangibles, les clients s'amusent et en parleront longtemps… Le compte à rebours d'Incident passe de 4 à 3 (bouton « Échec : Incident −1 »).</p>",
+        "format": 1
+      },
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "sort": 400,
+      "flags": {}
+    }
+  ]
+}

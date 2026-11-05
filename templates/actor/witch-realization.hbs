@@ -1,0 +1,13 @@
+<section class="tab {{tab.cssClass}}" data-tab="realization" data-group="primary">
+  <p class="ps-rule">{{localize "PS.Witch.realizationHint"}}</p>
+  <div class="ps-row">
+    <label>{{localize "PS.Witch.studyEssence"}}
+      <select name="system.study.essence">{{selectOptions studyEssences selected=system.study.essence valueAttr="value" labelAttr="label"}}</select>
+    </label>
+    <label class="ps-grow">{{localize "PS.Witch.studyMethod"}}
+      <input type="text" name="system.study.method" value="{{system.study.method}}" placeholder="{{localize 'PS.Witch.studyMethodPlaceholder'}}">
+    </label>
+  </div>
+  <h3 class="ps-section">{{localize "PS.Witch.realization"}}</h3>
+  <prose-mirror toggled name="system.realization" value="{{system.realization}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.realization}}}</prose-mirror>
+</section>

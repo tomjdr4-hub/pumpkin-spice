@@ -1,0 +1,48 @@
+<div class="ps-medium-body">
+  <header class="ps-header">
+    <img class="ps-portrait" src="{{actor.img}}" data-action="editImage" data-edit="img" alt="{{actor.name}}">
+    <div class="ps-header-main">
+      <input class="ps-name" type="text" name="name" value="{{actor.name}}">
+      <div class="ps-row">
+        <label class="ps-grow">{{localize "PS.Medium.occupation"}}<input type="text" name="system.occupation" value="{{system.occupation}}"></label>
+        <button type="button" data-action="inspiration" data-tooltip="{{localize 'PS.Medium.inspirationHint'}}"><i class="fa-solid fa-dice-d6"></i> {{localize "PS.Medium.inspiration"}}</button>
+      </div>
+      <div class="ps-row">
+        <label class="checkbox"><input type="checkbox" name="system.bonded" {{checked system.bonded}}> {{localize "PS.Medium.bonded"}}</label>
+        <label>{{localize "PS.Medium.visits"}}<input type="number" name="system.visits" value="{{system.visits}}" min="0" class="ps-short"></label>
+      </div>
+    </div>
+  </header>
+
+  {{#if isGM}}
+  <fieldset class="ps-secret">
+    <legend><i class="fa-solid fa-eye-slash"></i> {{localize "PS.Medium.desires"}}</legend>
+    <div class="ps-row">
+      <span class="ps-dice-row">{{#each desires}}<img class="ps-essence" src="{{this.icon}}" title="{{this.label}}">{{else}}<em>{{localize "PS.Medium.noDesires"}}</em>{{/each}}</span>
+      <input type="text" name="system.desires" value="{{system.desires}}" placeholder="5 5 6" class="ps-short">
+      <button type="button" data-action="rollDesires"><i class="fa-solid fa-dice"></i> {{localize "PS.Medium.rollDesires"}}</button>
+    </div>
+    <p class="ps-rule">{{localize "PS.Medium.promptsHint"}}</p>
+    <table class="ps-prompts">
+      {{#each prompts}}<tr><td><img class="ps-essence small" src="{{this.icon}}" title="{{this.label}}"></td><td>{{this.text}}</td></tr>{{/each}}
+    </table>
+  </fieldset>
+  {{/if}}
+
+  <fieldset>
+    <legend><i class="fa-solid fa-comments"></i> {{localize "PS.Medium.countdown"}}</legend>
+    <div class="ps-row">
+      <span class="ps-big">{{system.countdown}}</span>
+      <button type="button" data-action="startCountdown">{{localize "PS.Medium.start" n=interactions}}</button>
+      <button type="button" data-action="interact" {{#unless system.countdown}}disabled{{/unless}}>{{localize "PS.Medium.interact"}}</button>
+      <button type="button" data-action="beverage"><i class="fa-solid fa-mug-hot"></i> {{localize "PS.Beverage.Title"}}</button>
+    </div>
+  </fieldset>
+
+  <h3 class="ps-section">{{localize "PS.Medium.description"}}</h3>
+  <prose-mirror toggled name="system.description" value="{{system.description}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.description}}}</prose-mirror>
+  {{#if isGM}}
+  <h3 class="ps-section">{{localize "PS.Sheet.Notes"}}</h3>
+  <prose-mirror toggled name="system.notes" value="{{system.notes}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.notes}}}</prose-mirror>
+  {{/if}}
+</div>

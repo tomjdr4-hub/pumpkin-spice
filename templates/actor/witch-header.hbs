@@ -1,0 +1,30 @@
+<header class="ps-header">
+  <img class="ps-portrait" src="{{actor.img}}" data-action="editImage" data-edit="img" alt="{{actor.name}}">
+  <div class="ps-header-main">
+    <input class="ps-name" type="text" name="name" value="{{actor.name}}" placeholder="{{localize 'PS.Sheet.Name'}}">
+    <div class="ps-row">
+      <label>{{localize "PS.Witch.archetype"}}
+        <select name="system.archetype">{{selectOptions archetypes selected=system.archetype valueAttr="value" labelAttr="label"}}</select>
+      </label>
+      <label class="ps-essence-pick">{{localize "PS.Witch.essence"}}
+        <span class="ps-essence-select">
+          <img class="ps-essence" src="{{essenceIcon}}" alt="">
+          <select name="system.essence" data-dtype="Number">{{selectOptions essences selected=system.essence valueAttr="value" labelAttr="label"}}</select>
+        </span>
+      </label>
+    </div>
+    <div class="ps-row">
+      <label>{{localize "PS.Witch.pronouns"}}<input type="text" name="system.pronouns" value="{{system.pronouns}}"></label>
+      <label class="ps-grow">{{localize "PS.Witch.look"}}<input type="text" name="system.look" value="{{system.look}}"></label>
+    </div>
+  </div>
+  <aside class="ps-fount-box" data-action="openCafe" data-tooltip="{{localize 'PS.Witch.OpenCafe'}}">
+    {{#if cafe}}
+      <div class="ps-fount-title">{{cafe.name}}</div>
+      <div class="ps-fount-stat"><i class="fa-solid fa-droplet"></i> <b>{{cafe.magic}}</b> <small>{{localize "PS.Cafe.magicShort"}}</small></div>
+      <div class="ps-fount-stat"><i class="fa-solid fa-heart"></i> <b>{{cafe.vibe}}</b>/6 <small>{{localize "PS.Cafe.vibe"}}</small></div>
+    {{else}}
+      <div class="ps-fount-title">{{localize "PS.Warn.NoCafe"}}</div>
+    {{/if}}
+  </aside>
+</header>

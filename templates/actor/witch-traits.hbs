@@ -1,0 +1,28 @@
+<section class="tab {{tab.cssClass}}" data-tab="traits" data-group="primary">
+  <p class="ps-rule"><i class="fa-solid fa-wand-sparkles"></i> {{magicRule}}</p>
+  <ol class="ps-traits">
+    {{#each traits as |trait|}}
+    <li class="ps-trait" data-index="{{trait.index}}">
+      <input type="text" name="system.traits.{{trait.index}}.name" value="{{trait.name}}" placeholder="{{localize 'PS.Witch.traitPlaceholder'}}">
+      <span class="ps-pips" data-tooltip="{{localize 'PS.Witch.level'}}">
+        {{#each trait.pips as |pip|}}
+        <a class="ps-pip {{#if pip.on}}on{{/if}}" data-action="setLevel" data-value="{{pip.value}}">{{pip.value}}</a>
+        {{/each}}
+      </span>
+      <button type="button" class="ps-roll" data-action="rollTrait" data-tooltip="{{localize 'PS.Witch.rollTrait'}}"><i class="fa-solid fa-dice"></i> {{trait.dice}}d6</button>
+      {{#if @root.editable}}<a class="ps-icon-btn" data-action="removeTrait" data-tooltip="{{localize 'PS.Sheet.Delete'}}"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+    </li>
+    {{/each}}
+  </ol>
+  <div class="ps-buttons">
+    {{#if editable}}<button type="button" data-action="addTrait"><i class="fa-solid fa-plus"></i> {{localize "PS.Witch.addTrait"}}</button>{{/if}}
+    <button type="button" data-action="rollNoTrait"><i class="fa-solid fa-dice-one"></i> {{localize "PS.Witch.noTrait"}}</button>
+    <button type="button" data-action="covenTest"><i class="fa-solid fa-people-group"></i> {{localize "PS.Test.Together"}}</button>
+    <button type="button" data-action="narrative"><i class="fa-solid fa-dice-d6"></i> {{localize "PS.Card.Narrative"}}</button>
+  </div>
+
+  <h3 class="ps-section">{{localize "PS.Spell.Known"}}
+    {{#if editable}}<a class="ps-icon-btn" data-action="createItem" data-type="spell" data-tooltip="{{localize 'PS.Sheet.Create'}}"><i class="fa-solid fa-plus"></i></a>{{/if}}
+  </h3>
+  {{> "systems/pumpkin-spice/templates/actor/spell-list.hbs"}}
+</section>

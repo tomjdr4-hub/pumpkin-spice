@@ -1,0 +1,15 @@
+<section class="tab {{tab.cssClass}}" data-tab="venue" data-group="primary">
+  <div class="ps-row">
+    <label>{{localize "PS.Cafe.location"}}
+      <select name="system.location">{{selectOptions locations selected=system.location valueAttr="value" labelAttr="label"}}</select>
+    </label>
+    <label class="ps-grow">{{localize "PS.Cafe.style"}}
+      <input type="text" name="system.style" value="{{system.style}}" placeholder="{{localize 'PS.Cafe.stylePlaceholder'}}">
+    </label>
+  </div>
+  <h3 class="ps-section">{{localize "PS.Cafe.description"}}</h3>
+  <prose-mirror toggled name="system.description" value="{{system.description}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.description}}}</prose-mirror>
+  <h3 class="ps-section">{{localize "PS.Cafe.decorations"}}</h3>
+  <p class="ps-rule">{{localize "PS.Cafe.decorationsHint"}}</p>
+  <prose-mirror toggled name="system.decorations" value="{{system.decorations}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.decorations}}}</prose-mirror>
+</section>
