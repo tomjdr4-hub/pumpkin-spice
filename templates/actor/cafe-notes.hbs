@@ -1,3 +1,7 @@
 <section class="tab {{tab.cssClass}}" data-tab="notes" data-group="primary">
+  <h3 class="ps-section">{{localize "PS.Cafe.decorations"}}</h3>
+  <p class="ps-rule">{{localize "PS.Cafe.decorationsHint"}}</p>
+  <prose-mirror toggled name="system.decorations" value="{{system.decorations}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.decorations}}}</prose-mirror>
+  <h3 class="ps-section">{{localize "PS.Tab.notes"}}</h3>
   <prose-mirror toggled name="system.notes" value="{{system.notes}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.notes}}}</prose-mirror>
 </section>

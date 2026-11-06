@@ -1,0 +1,250 @@
+/* Fiche du Café : mise en page de la fiche papier (nom, Source, Ambiance, Incident | Garde-manger | Café). */
+@font-face {
+  font-family: "PS Script";
+  src: url("../assets/fonts/Lobster-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+.application.pumpkin-spice.sheet.cafe .window-content {
+  background: #7a3b2e radial-gradient(circle at 50% 0%, #8c4a3a 0%, transparent 70%);
+}
+.pumpkin-spice.cafe nav.sheet-tabs { border-color: rgba(255, 246, 233, 0.4); margin: 0 0 0.4rem; }
+.pumpkin-spice.cafe nav.sheet-tabs a { color: #f3dcc0; }
+.pumpkin-spice.cafe nav.sheet-tabs a.active { color: #fff6e9; }
+.pumpkin-spice.cafe .tab[data-tab=moments],
+.pumpkin-spice.cafe .tab[data-tab=notes] {
+  background: var(--ps-paper);
+  border-radius: 14px;
+  padding: 0.6rem 0.8rem;
+}
+.pumpkin-spice .ps-moments-bar { margin-bottom: 0.5rem; }
+
+.pumpkin-spice .ps-cafe-sheet.active {
+  display: grid;
+  grid-template-columns: 250px minmax(420px, 1fr) 290px;
+  gap: 0.8rem;
+  min-height: 0;
+  flex: 1;
+}
+.pumpkin-spice .ps-panel {
+  background: #fbf4ea;
+  color: #6b3a2a;
+  padding: 0.8rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  overflow-y: auto;
+  clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
+}
+.pumpkin-spice .ps-script {
+  font-family: "PS Script", var(--font-h1, serif);
+  font-weight: normal;
+  color: #8a3f2c;
+  text-align: center;
+  border: none;
+  margin: 0.2rem 0 0.4rem;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+.pumpkin-spice .ps-paper-label {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #8a5a45;
+  margin: 0.2rem 0 0;
+}
+.application.pumpkin-spice.sheet .window-content .ps-paper-line {
+  background: #f6e6d2;
+  border: none;
+  border-bottom: 1px dotted #c79a7a;
+  border-radius: 4px;
+  color: #6b3a2a;
+  text-align: center;
+  font-family: "PS Script", serif;
+  font-size: 1.05rem;
+}
+.pumpkin-spice .ps-panel-left .ps-badge { align-self: center; margin-top: 0.2rem; }
+.pumpkin-spice .ps-box {
+  border: 1.5px solid #c99b7c;
+  border-radius: 14px;
+  margin: 0.6rem 0 0;
+  padding: 0.3rem 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pumpkin-spice .ps-box > legend {
+  font-family: "PS Script", serif;
+  font-size: 1.45rem;
+  color: #8a3f2c;
+  padding: 0 0.3rem;
+  margin: 0 auto;
+}
+.pumpkin-spice .ps-box.danger { border-color: var(--ps-bad); box-shadow: 0 0 8px rgba(181, 70, 58, 0.5); }
+
+/* Source de Magie : goutte */
+.pumpkin-spice .ps-fount-drop {
+  width: 84px;
+  height: 84px;
+  margin: 0.6rem 0 0.2rem;
+  background: #ecc7a3;
+  border-radius: 0 50% 50% 50%;
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset -6px -6px 0 rgba(166, 98, 60, 0.18);
+}
+.application.pumpkin-spice.sheet .window-content .ps-fount-drop input {
+  transform: rotate(-45deg);
+  width: 3.4rem;
+  height: 2.4rem;
+  font-family: "PS Script", serif;
+  font-size: 2rem;
+  text-align: center;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #8a5a45;
+  border-radius: 0;
+  color: #6b3a2a;
+}
+.pumpkin-spice .ps-fount-adjust { display: flex; gap: 1.6rem; }
+.pumpkin-spice .ps-fount-adjust a { color: #a0705a; cursor: pointer; }
+.pumpkin-spice .ps-fount-adjust a:hover { color: var(--ps-pumpkin); }
+
+/* Ambiance : six citrouilles */
+.pumpkin-spice .ps-pumpkins { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.3rem 0.5rem; width: 100%; }
+.pumpkin-spice .ps-pumpkin { position: relative; display: block; cursor: pointer; color: #f0d2b4; }
+.pumpkin-spice .ps-pumpkin svg { width: 100%; height: auto; display: block; fill: currentColor; stroke: #c99068; stroke-width: 1.2; }
+.pumpkin-spice .ps-pumpkin svg .stem { fill: #8a5a45; stroke: none; }
+.pumpkin-spice .ps-pumpkin svg .leaf { fill: #9cae6b; stroke: none; }
+.pumpkin-spice .ps-pumpkin span {
+  position: absolute;
+  inset: 22% 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "PS Script", serif;
+  font-size: 1.35rem;
+  color: #fff6e9;
+  text-shadow: 0 1px 1px rgba(107, 58, 42, 0.5);
+}
+.pumpkin-spice .ps-pumpkin.on { color: #e9a066; }
+.pumpkin-spice .ps-pumpkin.current span::before {
+  content: "";
+  position: absolute;
+  width: 1.9rem;
+  height: 1.9rem;
+  border: 2.5px solid #5b2a1e;
+  border-radius: 50%;
+}
+.pumpkin-spice .ps-pumpkin:hover { filter: brightness(1.06); }
+
+/* Incident Magique : 4 → 0 */
+.pumpkin-spice .ps-incident-track { display: flex; justify-content: space-between; width: 100%; }
+.pumpkin-spice .ps-incident-step { display: flex; flex-direction: column; align-items: center; gap: 0.15rem; cursor: pointer; color: #8a5a45; }
+.pumpkin-spice .ps-incident-step b { font-family: "PS Script", serif; font-weight: normal; font-size: 1.35rem; color: #c27a3a; }
+.pumpkin-spice .ps-incident-step > i {
+  font-size: 1.5rem;
+  background: linear-gradient(to top, #8a5a45 var(--fill), #e4cdb8 var(--fill));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.pumpkin-spice .ps-incident-step > i.fa-mug-hot { background: none; color: #b07a5e; }
+.pumpkin-spice .ps-incident-step .ps-check {
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #8a5a45;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #5b2a1e;
+}
+.pumpkin-spice .ps-incident-step.current b { color: #5b2a1e; }
+
+/* Garde-manger */
+.pumpkin-spice .ps-panel-pantry { padding: 0.6rem 1rem; }
+.pumpkin-spice .ps-pantry-table { border-collapse: collapse; width: 100%; margin: 0; background: none; border: 1.5px solid #c99b7c; }
+.pumpkin-spice .ps-pantry-table thead th {
+  background: #8e4a35;
+  color: #fff6e9;
+  font-family: "PS Script", serif;
+  font-weight: normal;
+  font-size: 1.15rem;
+  padding: 0.15rem 0.3rem;
+  text-shadow: none;
+}
+.pumpkin-spice .ps-pantry-table tr { background: none !important; }
+.pumpkin-spice .ps-pantry-table td { padding: 0 0.3rem; height: 1.55rem; border: none; }
+.pumpkin-spice .ps-pantry-table tbody tr:nth-child(odd) td.ps-col-name,
+.pumpkin-spice .ps-pantry-table tbody tr:nth-child(odd) td.ps-col-qty { background: #f3d8bd; }
+.pumpkin-spice .ps-pantry-table tbody tr:nth-child(even) td.ps-col-name,
+.pumpkin-spice .ps-pantry-table tbody tr:nth-child(even) td.ps-col-qty { background: #fbeee0; }
+.pumpkin-spice .ps-pantry-table .ps-col-name { text-align: left; width: 55%; position: relative; }
+.pumpkin-spice .ps-pantry-table thead .ps-col-name { text-align: center; }
+.pumpkin-spice .ps-pantry-table td.ps-col-name { font-family: "PS Script", serif; font-size: 1.05rem; color: #6b3a2a; }
+.pumpkin-spice .ps-pantry-table td.ps-col-name a.ps-item-name { color: inherit; }
+.pumpkin-spice .ps-pantry-table .ps-col-qty { width: 3.4rem; text-align: center; }
+.application.pumpkin-spice.sheet .window-content .ps-pantry-table .ps-col-qty input {
+  width: 100%;
+  height: 1.4rem;
+  text-align: center;
+  background: transparent;
+  border: none;
+  font-family: "PS Script", serif;
+  font-size: 1.05rem;
+  color: #6b3a2a;
+}
+.application.pumpkin-spice.sheet .window-content .ps-pantry-table .ps-col-qty.danger input { color: var(--ps-bad); }
+.pumpkin-spice .ps-pantry-table .ps-row-delete { position: absolute; right: 0.3rem; top: 0.15rem; visibility: hidden; font-size: 0.8rem; }
+.pumpkin-spice .ps-pantry-table tr:hover .ps-row-delete { visibility: visible; }
+.pumpkin-spice .ps-pantry-table .ps-filler a { font-family: var(--font-body, sans-serif); font-size: 0.8rem; color: #a0705a; cursor: pointer; }
+.pumpkin-spice .ps-pantry-table thead .ps-ess-head { background: #fbf4ea; padding: 2px 0; border-bottom: 3px solid; }
+.pumpkin-spice .ps-ess-head img { display: block; margin: 0 auto; }
+.pumpkin-spice .ps-ess-cell {
+  width: 2.1rem;
+  text-align: center;
+  font-family: "PS Script", serif;
+  font-size: 1.15rem;
+  color: #6b3a2a;
+  border-left: 1px solid rgba(107, 58, 42, 0.25) !important;
+}
+.pumpkin-spice .ps-ess-cell[data-action] { cursor: pointer; }
+.pumpkin-spice .ps-ess-cell[data-action]:hover { box-shadow: inset 0 0 0 2px rgba(107, 58, 42, 0.35); }
+.pumpkin-spice tbody tr:nth-child(odd) .ess-1 { background: #e98c86; }
+.pumpkin-spice tbody tr:nth-child(even) .ess-1 { background: #f4bdb6; }
+.pumpkin-spice tbody tr:nth-child(odd) .ess-2 { background: #8edcb7; }
+.pumpkin-spice tbody tr:nth-child(even) .ess-2 { background: #c4efd9; }
+.pumpkin-spice tbody tr:nth-child(odd) .ess-3 { background: #e5cd78; }
+.pumpkin-spice tbody tr:nth-child(even) .ess-3 { background: #f3e4ac; }
+.pumpkin-spice tbody tr:nth-child(odd) .ess-4 { background: #9e9e9e; }
+.pumpkin-spice tbody tr:nth-child(even) .ess-4 { background: #cfcfcf; }
+.pumpkin-spice tbody tr:nth-child(odd) .ess-5 { background: #e48fc6; }
+.pumpkin-spice tbody tr:nth-child(even) .ess-5 { background: #f2c3e1; }
+.pumpkin-spice tbody tr:nth-child(odd) .ess-6 { background: #7f9fcc; }
+.pumpkin-spice tbody tr:nth-child(even) .ess-6 { background: #b9cbe6; }
+.pumpkin-spice thead .ps-ess-head.ess-1 { border-color: #e98c86; }
+.pumpkin-spice thead .ps-ess-head.ess-2 { border-color: #8edcb7; }
+.pumpkin-spice thead .ps-ess-head.ess-3 { border-color: #e5cd78; }
+.pumpkin-spice thead .ps-ess-head.ess-4 { border-color: #9e9e9e; }
+.pumpkin-spice thead .ps-ess-head.ess-5 { border-color: #e48fc6; }
+.pumpkin-spice thead .ps-ess-head.ess-6 { border-color: #7f9fcc; }
+.pumpkin-spice .ps-pantry-foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 0.5rem; font-size: 0.75rem; color: #6b3a2a; margin-top: 0.3rem; }
+.pumpkin-spice .ps-pantry-foot p { margin: 0; }
+.pumpkin-spice .ps-legend { display: flex; gap: 0.3rem; white-space: nowrap; }
+.pumpkin-spice .ps-legend span { display: flex; align-items: center; }
+.pumpkin-spice .ps-legend img.ps-essence.small { width: 16px; height: 16px; }
+
+/* Colonne droite : lignes d'écriture */
+.pumpkin-spice prose-mirror.ps-lined {
+  flex: 1 0 9rem;
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 1.45rem, #e2c9b3 1.45rem, #e2c9b3 1.5rem);
+  border-radius: 0;
+  color: #4a2a1e;
+}
+.pumpkin-spice .ps-pantry-table tr.ps-item { display: table-row; padding: 0; border: none; }
+.pumpkin-spice .ps-pantry-table td.ps-col-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 0; }

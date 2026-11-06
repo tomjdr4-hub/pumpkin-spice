@@ -72,7 +72,8 @@
       "moments": "Moments",
       "venue": "The Café",
       "pantry": "Pantry",
-      "notes": "Notes"
+      "notes": "Notes",
+      "sheet": "Café Sheet"
     },
     "Sheet": {
       "Name": "Name",
@@ -140,7 +141,19 @@
       "decorations": "Furniture and decoration",
       "decorationsHint": "Each Witch adds a piece of furniture or decoration that suits them; the Guide goes last.",
       "pantryHint": "Each Ingredient captures an Essence. A Beverage is made from 3 Ingredients (the same one may be used more than once).",
-      "addIngredient": "Add an Ingredient"
+      "addIngredient": "Add an Ingredient",
+      "name": "Name of the Café",
+      "place": "Place",
+      "fount": "Fount of Magic",
+      "incidentTitle": "Magical Incident",
+      "ingredient": "Ingredient",
+      "essence": "Essence",
+      "qty": "Qty.",
+      "pantryFoot": "Each <b>Beverage</b> is composed of <b>three magical Ingredients</b>, besides its mundane elements.",
+      "cafeTitle": "Café",
+      "describeVenue": "Describe the venue and its distinctive features",
+      "history": "The Café's History",
+      "momentsHint": "Fount: {magic} Magic · Vibe {vibe}/6 · Magical Incident in {incident}"
     },
     "Moment": {
       "narrative": "Essence Die",

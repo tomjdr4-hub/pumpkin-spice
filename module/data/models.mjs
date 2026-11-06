@@ -67,6 +67,7 @@ export class CafeData extends foundry.abstract.TypeDataModel {
       style: new fields.StringField({ initial: "" }),
       description: new fields.HTMLField({ initial: "" }),
       decorations: new fields.HTMLField({ initial: "" }),
+      history: new fields.HTMLField({ initial: "" }),
       notes: new fields.HTMLField({ initial: "" })
     };
   }

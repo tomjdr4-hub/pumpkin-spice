@@ -1,4 +1,15 @@
 <section class="tab {{tab.cssClass}}" data-tab="moments" data-group="primary">
+  <div class="ps-row ps-moments-bar">
+    <div class="ps-tracker ps-day">
+      <label>{{localize "PS.Cafe.day"}}</label>
+      <div class="ps-counter">
+        <a data-action="adjust" data-field="day" data-delta="-1"><i class="fa-solid fa-minus"></i></a>
+        <input type="number" name="system.day" value="{{system.day}}" min="1">
+        <a data-action="adjust" data-field="day" data-delta="1"><i class="fa-solid fa-plus"></i></a>
+      </div>
+    </div>
+    <p class="ps-rule ps-grow">{{localize "PS.Cafe.momentsHint" magic=system.magic vibe=system.vibe incident=system.incident}}</p>
+  </div>
   <div class="ps-moments">
     <div class="ps-moment">
       <h4><i class="fa-solid fa-dice-d6"></i> {{localize "PS.Moment.narrative"}}</h4>

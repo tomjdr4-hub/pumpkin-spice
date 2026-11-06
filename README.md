@@ -37,10 +37,13 @@ https://github.com/tomjdr4-hub/pumpkin-spice/releases/latest/download/system.jso
 - Bouton d'**Ambiance** : applique la conséquence (±1 pour agir seule, +1 ou −1 par Essence manquante pour le Coup de feu).
 
 ### Fiche de Café (fiche partagée du coven)
-- Ambiance (0 à 6), Magie de la Source, compte à rebours d'Incident Magique, Journée.
-- Onglet **Moments** : Dé d'Essence, Grande inauguration, Agir ensemble, Coup de feu, Médium, É.M.I., Fin de la Journée.
-- Garde-manger : Ingrédients et doses (3 doses de chaque Ingrédient de base à la création).
-- Sorts du coven, lieu de la Source, style, mobilier et décoration.
+- Mise en page calquée sur la fiche papier, en trois colonnes :
+  - nom du Café et lieu, **Source de Magie**, **Ambiance** (six citrouilles cliquables), **Incident Magique** (tasses de 4 à 0, cliquables) ;
+  - **Garde-manger** : tableau des Ingrédients avec une colonne colorée par Essence (un clic sur la case change l'Essence) et la quantité ;
+  - **Café** : description du lieu et **histoire du Café**.
+- Onglet **Moments** : Journée, Dé d'Essence, Grande inauguration, Agir ensemble, Coup de feu, Médium, É.M.I., Fin de la Journée ; le coven et ses Sorts.
+- Onglet **Notes** : mobilier et décoration, notes libres.
+- 3 doses de chaque Ingrédient de base à la création.
 - Bandeau permanent en haut de l'écran : Magie, Ambiance, compte à rebours d'Incident.
 
 ### Médiums et Breuvages
@@ -60,6 +63,10 @@ https://github.com/tomjdr4-hub/pumpkin-spice/releases/latest/download/system.jso
 
 ### Multijoueur
 Les joueurs peuvent utiliser la Magie sur un jet collectif lancé par quelqu'un d'autre : l'action passe par la Guide (MJ) connectée.
+
+## Crédits
+
+Police [Lobster](https://github.com/impallari/The-Lobster-Font) © The Lobster Project Authors, sous licence SIL Open Font License 1.1 (`assets/fonts/OFL-Lobster.txt`).
 
 ## Développement
 

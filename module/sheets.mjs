@@ -276,9 +276,11 @@ export class WitchSheet extends PSActorSheet {
 export class CafeSheet extends PSActorSheet {
   static DEFAULT_OPTIONS = {
     classes: ["cafe"],
-    position: { width: 760, height: 800 },
+    position: { width: 1180, height: 820 },
     actions: {
       setVibe: CafeSheet.#onSetVibe,
+      setIncident: CafeSheet.#onSetIncident,
+      setIngredientEssence: CafeSheet.#onSetIngredientEssence,
       adjust: CafeSheet.#onAdjust,
       setActive: CafeSheet.#onSetActive,
       quantity: CafeSheet.#onQuantity,
@@ -293,26 +295,23 @@ export class CafeSheet extends PSActorSheet {
     }
   };
 
-  static HTML_FIELDS = ["description", "decorations", "notes"];
+  static HTML_FIELDS = ["description", "history", "decorations", "notes"];
 
   static PARTS = {
-    header: { template: `${T}/actor/cafe-header.hbs` },
     tabs: { template: "templates/generic/tab-navigation.hbs" },
+    sheet: { template: `${T}/actor/cafe-sheet.hbs`, scrollable: [".ps-panel-pantry", ".ps-panel-right"] },
     moments: { template: `${T}/actor/cafe-moments.hbs`, scrollable: [""] },
-    venue: { template: `${T}/actor/cafe-venue.hbs`, scrollable: [""] },
-    pantry: { template: `${T}/actor/cafe-pantry.hbs`, scrollable: [""] },
     notes: { template: `${T}/actor/cafe-notes.hbs`, scrollable: [""] }
   };
 
   static TABS = {
     primary: {
       tabs: [
+        { id: "sheet", icon: "fa-solid fa-mug-saucer" },
         { id: "moments", icon: "fa-solid fa-clock" },
-        { id: "venue", icon: "fa-solid fa-store" },
-        { id: "pantry", icon: "fa-solid fa-jar" },
         { id: "notes", icon: "fa-solid fa-feather" }
       ],
-      initial: "moments",
+      initial: "sheet",
       labelPrefix: "PS.Tab"
     }
   };
@@ -322,16 +321,22 @@ export class CafeSheet extends PSActorSheet {
     const context = await super._prepareContext(options);
     const s = this.actor.system;
     const activeId = game.settings.get(SYSTEM_ID, "activeCafe");
+    const ingredients = this.actor.items.filter(i => i.type === "ingredient")
+      .sort((a, b) => (a.system.essence - b.system.essence) || a.name.localeCompare(b.name));
     Object.assign(context, {
-      vibePips: Array.from({ length: PS.VIBE_MAX + 1 }, (_, v) => ({ value: v, on: v <= s.vibe && v > 0, current: v === s.vibe })),
+      pumpkins: Array.from({ length: PS.VIBE_MAX }, (_, i) => ({ value: i + 1, on: i + 1 <= s.vibe, current: i + 1 === s.vibe })),
+      incidentSteps: CafeSheet.#incidentSteps(s.incident),
       isActive: (activeId === this.actor.id) || (!game.actors.get(activeId) && getCafe()?.id === this.actor.id),
       fountEmpty: s.magic <= 0,
       incidentNow: s.incident <= 0,
       mediumInteractions: 1 + s.vibe,
       locations: [{ value: "", label: "—" }, ...PS.LOCATIONS.map(l => ({ value: l, label: t(`PS.Location.${l}`) }))],
-      ingredients: this.actor.items.filter(i => i.type === "ingredient")
-        .sort((a, b) => (a.system.essence - b.system.essence) || a.name.localeCompare(b.name))
-        .map(i => ({ id: i.id, name: i.name, img: i.img, quantity: i.system.quantity, essenceIcon: essenceIcon(i.system.essence), essenceLabel: essenceLabel(i.system.essence) })),
+      essenceColumns: [1, 2, 3, 4, 5, 6].map(e => ({ value: e, icon: essenceIcon(e), label: essenceLabel(e) })),
+      pantryRows: ingredients.map(i => ({
+        id: i.id, name: i.name, quantity: i.system.quantity,
+        cells: [1, 2, 3, 4, 5, 6].map(e => ({ value: e, on: e === i.system.essence }))
+      })),
+      fillerRows: Array.from({ length: Math.max(CafeSheet.PANTRY_ROWS - ingredients.length, 1) }, (_, i) => ({ add: (i === 0) && this.isEditable })),
       witches: game.actors.filter(a => a.type === "witch").map(w => ({ id: w.id, name: w.name, img: w.img, essenceIcon: essenceIcon(w.system.essence) })),
       mediums: game.actors.filter(a => (a.type === "medium") && a.visible).map(m => ({ id: m.id, name: m.name, img: m.img, bonded: m.system.bonded }))
     });
@@ -344,6 +349,27 @@ export class CafeSheet extends PSActorSheet {
     this.element.querySelectorAll("[data-open-actor]").forEach(el => {
       el.addEventListener("click", () => game.actors.get(el.dataset.openActor)?.sheet.render(true));
     });
+  }
+
+  /** Nombre de lignes du garde-manger, comme sur la fiche papier. */
+  static PANTRY_ROWS = 20;
+
+  /** Cases du compte à rebours d'Incident : 4 → 0 (ou plus si le compteur dépasse 4). */
+  static #incidentSteps(incident) {
+    const top = Math.max(PS.START.incident, incident);
+    return Array.from({ length: top + 1 }, (_, i) => {
+      const value = top - i;
+      return { value, current: value === incident, past: value > incident, last: value === 0, fill: `${Math.round((value / top) * 100)}%` };
+    });
+  }
+
+  static async #onSetIncident(event, target) {
+    await this.actor.update({ "system.incident": Number(target.dataset.value) });
+  }
+
+  static async #onSetIngredientEssence(event, target) {
+    const item = this._item(target);
+    if ( item ) await item.update({ "system.essence": Number(target.dataset.value) });
   }
 
   static async #onSetVibe(event, target) {

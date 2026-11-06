@@ -72,7 +72,8 @@
       "moments": "Moments",
       "venue": "Le Café",
       "pantry": "Garde-manger",
-      "notes": "Notes"
+      "notes": "Notes",
+      "sheet": "Fiche du Café"
     },
     "Sheet": {
       "Name": "Nom",
@@ -140,7 +141,19 @@
       "decorations": "Mobilier et décoration",
       "decorationsHint": "Chaque Sorcière apporte un élément de mobilier ou de décoration qui lui ressemble ; la Guide en dernier.",
       "pantryHint": "Chaque Ingrédient capture une Essence. Un Breuvage se prépare avec 3 Ingrédients (le même peut servir plusieurs fois).",
-      "addIngredient": "Ajouter un Ingrédient"
+      "addIngredient": "Ajouter un Ingrédient",
+      "name": "Nom du Café",
+      "place": "Lieu",
+      "fount": "Source de Magie",
+      "incidentTitle": "Incident Magique",
+      "ingredient": "Ingrédient",
+      "essence": "Essence",
+      "qty": "Qté",
+      "pantryFoot": "Chaque <b>Breuvage</b> se compose de <b>trois Ingrédients magiques</b>, en plus de ses éléments ordinaires.",
+      "cafeTitle": "Café",
+      "describeVenue": "Décrivez le lieu et ses particularités",
+      "history": "L'histoire du Café",
+      "momentsHint": "Source : {magic} Magie · Ambiance {vibe}/6 · Incident Magique dans {incident}"
     },
     "Moment": {
       "narrative": "Dé d'Essence",

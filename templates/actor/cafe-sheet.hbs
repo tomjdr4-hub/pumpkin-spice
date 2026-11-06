@@ -1,0 +1,115 @@
+<section class="tab {{tab.cssClass}} ps-cafe-sheet" data-tab="sheet" data-group="primary">
+
+  {{!-- Colonne gauche : nom, lieu, Source, Ambiance, Incident --}}
+  <div class="ps-panel ps-panel-left">
+    <label class="ps-paper-label">{{localize "PS.Cafe.name"}}</label>
+    <input class="ps-paper-line" type="text" name="name" value="{{actor.name}}" placeholder="{{localize 'PS.Cafe.namePlaceholder'}}">
+    <label class="ps-paper-label">{{localize "PS.Cafe.place"}}</label>
+    <select class="ps-paper-line" name="system.location" data-tooltip="{{localize 'PS.Cafe.location'}}">{{selectOptions locations selected=system.location valueAttr="value" labelAttr="label"}}</select>
+    <input class="ps-paper-line" type="text" name="system.style" value="{{system.style}}" placeholder="{{localize 'PS.Cafe.stylePlaceholder'}}">
+    {{#if isGM}}
+      {{#if isActive}}<span class="ps-badge active"><i class="fa-solid fa-star"></i> {{localize "PS.Cafe.Active"}}</span>
+      {{else}}<button type="button" class="ps-badge" data-action="setActive">{{localize "PS.Cafe.SetActive"}}</button>{{/if}}
+    {{/if}}
+
+    <fieldset class="ps-box ps-fount {{#if fountEmpty}}danger{{/if}}">
+      <legend>{{localize "PS.Cafe.fount"}}</legend>
+      <div class="ps-fount-drop">
+        <input type="number" name="system.magic" value="{{system.magic}}" min="0">
+      </div>
+      <div class="ps-fount-adjust">
+        <a data-action="adjust" data-field="magic" data-delta="-1" data-tooltip="−1"><i class="fa-solid fa-minus"></i></a>
+        <a data-action="adjust" data-field="magic" data-delta="1" data-tooltip="+1"><i class="fa-solid fa-plus"></i></a>
+      </div>
+      {{#if fountEmpty}}<p class="ps-warn">{{localize "PS.Warn.FountEmpty"}}</p>{{/if}}
+    </fieldset>
+
+    <fieldset class="ps-box ps-vibe-box">
+      <legend>{{localize "PS.Cafe.vibe"}}</legend>
+      <div class="ps-pumpkins">
+        {{#each pumpkins as |p|}}
+        <a class="ps-pumpkin {{#if p.on}}on{{/if}} {{#if p.current}}current{{/if}}" data-action="setVibe" data-value="{{p.value}}">
+          <svg viewBox="0 0 64 60" aria-hidden="true">
+            <path class="stem" d="M31 14c0-6 2-10 7-12l2 3c-4 2-5 5-5 9z"/>
+            <path class="leaf" d="M35 9c5-4 11-3 13 0-4 3-9 3-13 0z"/>
+            <ellipse cx="20" cy="36" rx="15" ry="20"/>
+            <ellipse cx="44" cy="36" rx="15" ry="20"/>
+            <ellipse cx="32" cy="36" rx="14" ry="22"/>
+          </svg>
+          <span>{{p.value}}</span>
+        </a>
+        {{/each}}
+      </div>
+    </fieldset>
+
+    <fieldset class="ps-box ps-incident-box {{#if incidentNow}}danger{{/if}}" data-tooltip="{{localize 'PS.Cafe.incidentHint'}}">
+      <legend>{{localize "PS.Cafe.incidentTitle"}}</legend>
+      <div class="ps-incident-track">
+        {{#each incidentSteps as |step|}}
+        <a class="ps-incident-step {{#if step.current}}current{{/if}} {{#if step.past}}past{{/if}}" data-action="setIncident" data-value="{{step.value}}">
+          <b>{{step.value}}</b>
+          <i class="fa-solid {{#if step.last}}fa-mug-hot{{else}}fa-mug-saucer{{/if}}" style="--fill: {{step.fill}}"></i>
+          <span class="ps-check">{{#if step.current}}<i class="fa-solid fa-xmark"></i>{{/if}}</span>
+        </a>
+        {{/each}}
+      </div>
+      {{#if incidentNow}}<p class="ps-warn">{{localize "PS.Warn.Incident"}}</p>{{/if}}
+    </fieldset>
+  </div>
+
+  {{!-- Colonne centrale : garde-manger --}}
+  <div class="ps-panel ps-panel-pantry">
+    <h2 class="ps-script">{{localize "PS.Tab.pantry"}}</h2>
+    <table class="ps-pantry-table">
+      <thead>
+        <tr>
+          <th class="ps-col-name" rowspan="2">{{localize "PS.Cafe.ingredient"}}</th>
+          <th colspan="6">{{localize "PS.Cafe.essence"}}</th>
+          <th class="ps-col-qty" rowspan="2">{{localize "PS.Cafe.qty"}}</th>
+        </tr>
+        <tr>
+          {{#each essenceColumns as |e|}}<th class="ps-ess-head ess-{{e.value}}"><img class="ps-essence small" src="{{e.icon}}" alt="{{e.value}}" data-tooltip="{{e.label}}"></th>{{/each}}
+        </tr>
+      </thead>
+      <tbody>
+        {{#each pantryRows as |row|}}
+        <tr class="ps-item" data-item-id="{{row.id}}">
+          <td class="ps-col-name">
+            <a class="ps-item-name" data-action="editItem">{{row.name}}</a>
+            {{#if @root.editable}}<a class="ps-icon-btn ps-row-delete" data-action="deleteItem" data-tooltip="{{localize 'PS.Sheet.Delete'}}"><i class="fa-solid fa-trash"></i></a>{{/if}}
+          </td>
+          {{#each row.cells as |c|}}
+          <td class="ps-ess-cell ess-{{c.value}}" {{#if @root.editable}}data-action="setIngredientEssence" data-value="{{c.value}}"{{/if}}>{{#if c.on}}X{{/if}}</td>
+          {{/each}}
+          <td class="ps-col-qty {{#unless row.quantity}}danger{{/unless}}">
+            <input type="number" value="{{row.quantity}}" min="0" data-item-field="system.quantity">
+          </td>
+        </tr>
+        {{/each}}
+        {{#each fillerRows as |f|}}
+        <tr class="ps-filler">
+          <td class="ps-col-name">{{#if f.add}}<a data-action="createItem" data-type="ingredient"><i class="fa-solid fa-plus"></i> {{localize "PS.Cafe.addIngredient"}}</a>{{/if}}</td>
+          {{#each @root.essenceColumns as |e|}}<td class="ps-ess-cell ess-{{e.value}}"></td>{{/each}}
+          <td class="ps-col-qty"></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <footer class="ps-pantry-foot">
+      <p>{{{localize "PS.Cafe.pantryFoot"}}}</p>
+      <p class="ps-legend">{{#each essenceColumns as |e|}}<span><img class="ps-essence small" src="{{e.icon}}" alt="">={{e.value}}</span>{{/each}}</p>
+    </footer>
+    <div class="ps-buttons">
+      <button type="button" data-action="beverage"><i class="fa-solid fa-mug-hot"></i> {{localize "PS.Beverage.Title"}}</button>
+    </div>
+  </div>
+
+  {{!-- Colonne droite : le Café et son histoire --}}
+  <div class="ps-panel ps-panel-right">
+    <h2 class="ps-script">{{localize "PS.Cafe.cafeTitle"}}</h2>
+    <p class="ps-paper-label">{{localize "PS.Cafe.describeVenue"}}</p>
+    <prose-mirror class="ps-lined" toggled name="system.description" value="{{system.description}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.description}}}</prose-mirror>
+    <h2 class="ps-script">{{localize "PS.Cafe.history"}}</h2>
+    <prose-mirror class="ps-lined" toggled name="system.history" value="{{system.history}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.history}}}</prose-mirror>
+  </div>
+</section>
