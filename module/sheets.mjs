@@ -156,8 +156,9 @@ class PSActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 export class WitchSheet extends PSActorSheet {
   static DEFAULT_OPTIONS = {
     classes: ["witch"],
-    position: { width: 720, height: 760 },
+    position: { width: 1060, height: 800 },
     actions: {
+      setEssence: WitchSheet.#onSetEssence,
       rollTrait: WitchSheet.#onRollTrait,
       rollNoTrait: WitchSheet.#onRollNoTrait,
       covenTest: WitchSheet.#onCovenTest,
@@ -172,9 +173,9 @@ export class WitchSheet extends PSActorSheet {
   static HTML_FIELDS = ["biography", "realization", "notes"];
 
   static PARTS = {
-    header: { template: `${T}/actor/witch-header.hbs` },
     tabs: { template: "templates/generic/tab-navigation.hbs" },
-    traits: { template: `${T}/actor/witch-traits.hbs`, scrollable: [""] },
+    sheet: { template: `${T}/actor/witch-sheet.hbs`, scrollable: [".ps-witch-left", ".ps-trait-cards"] },
+    spells: { template: `${T}/actor/witch-spells.hbs`, scrollable: [""] },
     realization: { template: `${T}/actor/witch-realization.hbs`, scrollable: [""] },
     biography: { template: `${T}/actor/witch-biography.hbs`, scrollable: [""] }
   };
@@ -182,11 +183,12 @@ export class WitchSheet extends PSActorSheet {
   static TABS = {
     primary: {
       tabs: [
-        { id: "traits", icon: "fa-solid fa-hat-wizard" },
+        { id: "sheet", icon: "fa-solid fa-hat-wizard" },
+        { id: "spells", icon: "fa-solid fa-wand-sparkles" },
         { id: "realization", icon: "fa-solid fa-seedling" },
         { id: "biography", icon: "fa-solid fa-book-open" }
       ],
-      initial: "traits",
+      initial: "sheet",
       labelPrefix: "PS.Tab"
     }
   };
@@ -202,8 +204,10 @@ export class WitchSheet extends PSActorSheet {
       essences: essenceOptions(),
       studyEssences: [{ value: "", label: "—" }, ...essenceOptions()],
       archetypes: Object.keys(PS.ARCHETYPES).map(k => ({ value: k, label: t(`PS.Archetype.${k}`) })),
+      traitRows: Math.max(Math.ceil(s.traits.length / 2), 1),
+      essenceChoices: [1, 2, 3, 4, 5, 6].map(e => ({ value: e, icon: essenceIcon(e), label: essenceLabel(e), on: e === s.essence })),
       traits: s.traits.map((tr, index) => ({
-        ...tr, index,
+        ...tr, index, style: ["binder", "holes", "grid"][index % 3],
         questions: [{ value: "", label: t("PS.Witch.Question.none") },
           ...PS.TRAIT_QUESTIONS.map(q => ({ value: q, label: t(`PS.Witch.Question.${q}`) }))],
         pips: Array.from({ length: PS.TRAIT_MAX }, (_, i) => ({ value: i + 1, on: i < tr.level })),
@@ -231,6 +235,15 @@ export class WitchSheet extends PSActorSheet {
     }
     if ( sys.study && (sys.study.essence === "") ) sys.study.essence = null;
     return data;
+  }
+
+  /** Choisir une autre Essence que celle du type de Sorcière en fait une Sorcière « autre ». */
+  static async #onSetEssence(event, target) {
+    const essence = Number(target.dataset.value);
+    const fixed = PS.ARCHETYPES[this.actor.system.archetype];
+    const update = { "system.essence": essence };
+    if ( fixed && (fixed !== essence) ) update["system.archetype"] = "custom";
+    await this.actor.update(update);
   }
 
   static #onRollTrait(event, target) {

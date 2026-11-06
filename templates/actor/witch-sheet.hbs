@@ -1,0 +1,82 @@
+<section class="tab {{tab.cssClass}} ps-witch-sheet" data-tab="sheet" data-group="primary">
+
+  {{!-- Colonne gauche : Qui suis-je ? / Ma magie --}}
+  <div class="ps-witch-left">
+    <div class="ps-polaroid-wrap">
+      <figure class="ps-polaroid">
+        <img src="{{actor.img}}" data-action="editImage" data-edit="img" alt="{{actor.name}}">
+      </figure>
+      <span class="ps-who">{{localize "PS.Witch.whoAmI"}}</span>
+    </div>
+
+    <div class="ps-torn ps-identity">
+      <label class="ps-line-label">{{localize "PS.Witch.myName"}}
+        <input class="ps-hand" type="text" name="name" value="{{actor.name}}" placeholder="{{localize 'PS.Sheet.Name'}}">
+      </label>
+      <label class="ps-line-label">{{localize "PS.Witch.howILook"}}
+        <input class="ps-hand" type="text" name="system.look" value="{{system.look}}">
+      </label>
+      <div class="ps-dream">
+        <span class="ps-line-label">{{localize "PS.Witch.dream"}}</span>
+        <textarea class="ps-hand ps-ruled" name="system.dream" rows="3">{{system.dream}}</textarea>
+      </div>
+    </div>
+
+    <div class="ps-torn ps-my-magic">
+      <h2 class="ps-paper-title">{{localize "PS.Witch.myMagic"}}</h2>
+      <label class="ps-line-label">{{localize "PS.Witch.witchType"}}
+        <select class="ps-hand" name="system.archetype">{{selectOptions archetypes selected=system.archetype valueAttr="value" labelAttr="label"}}</select>
+      </label>
+      <div class="ps-line-label ps-essence-line">{{localize "PS.Witch.essences"}}
+        <span class="ps-essence-pick-row">
+          {{#each essenceChoices as |e|}}
+          <a class="ps-essence-choice {{#if e.on}}on{{/if}}" {{#if @root.editable}}data-action="setEssence" data-value="{{e.value}}"{{/if}} data-tooltip="{{e.label}}"><img class="ps-essence" src="{{e.icon}}" alt="{{e.value}}"></a>
+          {{/each}}
+        </span>
+      </div>
+      <p class="ps-magic-rule">{{magicRule}}</p>
+      <div class="ps-dream">
+        <span class="ps-line-label">{{localize "PS.Witch.paths"}}</span>
+        <textarea class="ps-hand ps-ruled" name="system.paths" rows="3">{{system.paths}}</textarea>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Presse-papiers des Traits --}}
+  <div class="ps-clipboard">
+    <div class="ps-clip"></div>
+    <h2 class="ps-paper-title ps-traits-title">{{localize "PS.Witch.traits"}}</h2>
+    <div class="ps-trait-cards" style="--rows: {{traitRows}}">
+      {{#each traits as |trait|}}
+      <article class="ps-note ps-note-{{trait.style}}" data-index="{{trait.index}}">
+        <select class="ps-note-question" name="system.traits.{{trait.index}}.question" data-tooltip="{{localize 'PS.Witch.questionHint'}}">
+          {{selectOptions trait.questions selected=trait.question valueAttr="value" labelAttr="label"}}
+        </select>
+        <input class="ps-hand ps-note-answer" type="text" name="system.traits.{{trait.index}}.name" value="{{trait.name}}" placeholder="{{localize 'PS.Witch.traitPlaceholder'}}">
+        <div class="ps-note-line"></div>
+        <div class="ps-note-foot">
+          <label class="ps-use" data-tooltip="{{localize 'PS.Witch.usedHint'}}">
+            <span>{{localize "PS.Witch.used"}}</span>
+            <input class="ps-use-input" type="checkbox" name="system.traits.{{trait.index}}.used" {{checked trait.used}}>
+            <i class="ps-use-box"></i>
+          </label>
+          {{#each trait.pips as |pip|}}
+          <a class="ps-level {{#if pip.on}}on{{/if}}" data-action="setLevel" data-value="{{pip.value}}" data-tooltip="{{localize 'PS.Witch.level'}}">
+            <span>{{localize "PS.Witch.levelN" n=pip.value}}</span>
+            <i class="ps-ring">{{#if pip.on}}<i class="fa-solid fa-check"></i>{{/if}}</i>
+          </a>
+          {{/each}}
+          <button type="button" class="ps-note-roll" data-action="rollTrait" data-tooltip="{{localize 'PS.Witch.rollTrait'}}"><i class="fa-solid fa-dice"></i> {{trait.dice}}d6</button>
+        </div>
+        {{#if @root.editable}}<a class="ps-note-delete" data-action="removeTrait" data-tooltip="{{localize 'PS.Sheet.Delete'}}"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+      </article>
+      {{/each}}
+    </div>
+    <div class="ps-clipboard-bar">
+      {{#if editable}}<button type="button" data-action="addTrait"><i class="fa-solid fa-plus"></i> {{localize "PS.Witch.addTrait"}}</button>{{/if}}
+      <button type="button" data-action="rollNoTrait"><i class="fa-solid fa-dice-one"></i> {{localize "PS.Witch.noTrait"}}</button>
+      <button type="button" data-action="covenTest"><i class="fa-solid fa-people-group"></i> {{localize "PS.Test.Together"}}</button>
+      <button type="button" data-action="narrative"><i class="fa-solid fa-dice-d6"></i> {{localize "PS.Card.Narrative"}}</button>
+    </div>
+  </div>
+</section>

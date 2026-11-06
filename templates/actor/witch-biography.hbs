@@ -1,4 +1,7 @@
 <section class="tab {{tab.cssClass}}" data-tab="biography" data-group="primary">
+  <div class="ps-row">
+    <label>{{localize "PS.Witch.pronouns"}}<input type="text" name="system.pronouns" value="{{system.pronouns}}"></label>
+  </div>
   <h3 class="ps-section">{{localize "PS.Witch.biography"}}</h3>
   <prose-mirror toggled name="system.biography" value="{{system.biography}}" {{#unless editable}}disabled{{/unless}}>{{{enriched.biography}}}</prose-mirror>
   <h3 class="ps-section">{{localize "PS.Sheet.Notes"}}</h3>

@@ -2,7 +2,7 @@
   "id": "pumpkin-spice",
   "title": "Pumpkin Spice",
   "description": "Système non officiel pour Pumpkin Spice, le JdR cosy où un coven de Sorcières tient un Café magique (Acheron Games). Dés d'Essence, Source de Magie partagée, Ambiance, Médiums et Breuvages.",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "compatibility": {
     "minimum": "13",
     "verified": "14"
@@ -18,7 +18,8 @@
   ],
   "styles": [
     "styles/pumpkin-spice.css",
-    "styles/cafe-sheet.css"
+    "styles/cafe-sheet.css",
+    "styles/witch-sheet.css"
   ],
   "languages": [
     {

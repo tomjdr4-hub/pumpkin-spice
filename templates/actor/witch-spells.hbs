@@ -1,0 +1,16 @@
+<section class="tab {{tab.cssClass}}" data-tab="spells" data-group="primary">
+  <aside class="ps-fount-box ps-fount-inline" data-action="openCafe" data-tooltip="{{localize 'PS.Witch.OpenCafe'}}">
+    {{#if cafe}}
+      <span class="ps-fount-title">{{cafe.name}}</span>
+      <span class="ps-fount-stat"><i class="fa-solid fa-droplet"></i> <b>{{cafe.magic}}</b> <small>{{localize "PS.Cafe.magicShort"}}</small></span>
+      <span class="ps-fount-stat"><i class="fa-solid fa-heart"></i> <b>{{cafe.vibe}}</b>/6 <small>{{localize "PS.Cafe.vibe"}}</small></span>
+    {{else}}
+      <span class="ps-fount-title">{{localize "PS.Warn.NoCafe"}}</span>
+    {{/if}}
+  </aside>
+  <p class="ps-rule"><i class="fa-solid fa-wand-sparkles"></i> {{magicRule}}</p>
+  <h3 class="ps-section">{{localize "PS.Spell.Known"}}
+    {{#if editable}}<a class="ps-icon-btn" data-action="createItem" data-type="spell" data-tooltip="{{localize 'PS.Sheet.Create'}}"><i class="fa-solid fa-plus"></i></a>{{/if}}
+  </h3>
+  {{> "systems/pumpkin-spice/templates/actor/spell-list.hbs"}}
+</section>

@@ -75,7 +75,8 @@
       "venue": "The Café",
       "pantry": "Pantry",
       "notes": "Notes",
-      "sheet": "Café Sheet"
+      "sheet": "Sheet",
+      "spells": "Spells"
     },
     "Sheet": {
       "Name": "Name",
@@ -121,7 +122,17 @@
         "familiar": "Your Familiar…",
         "mundane": "Mundane feature…",
         "others": "Others see you as…"
-      }
+      },
+      "whoAmI": "Who Am I?",
+      "myName": "My name:",
+      "howILook": "How I look:",
+      "dream": "The Witch I dream to be:",
+      "myMagic": "My Magic",
+      "witchType": "Witch Type:",
+      "essences": "Essences:",
+      "paths": "Paths:",
+      "traits": "Traits",
+      "levelN": "Level {n}"
     },
     "Cafe": {
       "magic": "Fount Magic",

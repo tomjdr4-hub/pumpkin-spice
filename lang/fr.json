@@ -75,7 +75,8 @@
       "venue": "Le Café",
       "pantry": "Garde-manger",
       "notes": "Notes",
-      "sheet": "Fiche du Café"
+      "sheet": "Fiche",
+      "spells": "Sorts"
     },
     "Sheet": {
       "Name": "Nom",
@@ -121,7 +122,17 @@
         "familiar": "Ton Familier…",
         "mundane": "Dans la vie de tous les jours…",
         "others": "Les autres te voient comme…"
-      }
+      },
+      "whoAmI": "Qui suis-je ?",
+      "myName": "Mon nom :",
+      "howILook": "Mon allure :",
+      "dream": "La Sorcière que je rêve d'être :",
+      "myMagic": "Ma magie",
+      "witchType": "Type de Sorcière :",
+      "essences": "Essences :",
+      "paths": "Voies :",
+      "traits": "Traits",
+      "levelN": "Niveau {n}"
     },
     "Cafe": {
       "magic": "Magie de la Source",

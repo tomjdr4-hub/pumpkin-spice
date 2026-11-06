@@ -22,12 +22,12 @@ https://github.com/tomjdr4-hub/pumpkin-spice/releases/latest/download/system.jso
 - Commande de chat `/essence 3` : lance 3 Dés d'Essence narratifs, avec un rappel de ce qu'évoque chaque Essence.
 
 ### Fiche de Sorcière
-- Type de Sorcière (Verte, de Coven, Séculière, Traditionnelle ou autre) et Essence liée.
-- Six Traits, chacun répondant à une question de la fiche (*Tu te vois comme…*, *Tu étudies la Magie pour…*, *Ta Magie…*, *Ton Familier…*, *Dans la vie de tous les jours…*, *Les autres te voient comme…*), plus des Traits libres.
-- Niveau d'Accomplissement de 1 à 3 et case « Utilisé » pour chaque Trait ; un clic lance le test (1d6 + 1d6 par niveau).
-- Test sans Trait (1d6), test collectif, Sorts connus.
-- Accomplissement : Essence étudiée, méthode, journal de progression.
-- Rappel de la Magie de la Source et de l'Ambiance du Café.
+- Mise en page calquée sur la fiche papier :
+  - **Qui suis-je ?** : portrait en polaroïd, nom, allure, la Sorcière que je rêve d'être ;
+  - **Ma magie** : type de Sorcière, Essences (l'Essence liée est entourée, un clic pour la changer), voies ;
+  - **Traits** sur un presse-papiers : six feuillets, chacun avec sa question (*Tu te vois comme…*, *Tu étudies la Magie pour…*, *Ta Magie…*, *Ton Familier…*, *Dans la vie de tous les jours…*, *Les autres te voient comme…*), la case « Utilisé » et les niveaux 1 à 3 à cocher. Traits libres en plus.
+- Un clic sur le bouton d'un Trait lance le test (1d6 + 1d6 par niveau) ; test sans Trait (1d6), test collectif, Dé d'Essence.
+- Onglets **Sorts** (Sorts connus, rappel de la Source et de la règle de Magie), **Accomplissement** (Essence étudiée, méthode, journal) et **Biographie** (pronoms, biographie, notes).
 
 ### Tests
 - **Agir seule** : choix du Trait, des Essences requises (fixées par la Guide) et de la conséquence.
@@ -66,7 +66,10 @@ Les joueurs peuvent utiliser la Magie sur un jet collectif lancé par quelqu'un 
 
 ## Crédits
 
-Police [Lobster](https://github.com/impallari/The-Lobster-Font) © The Lobster Project Authors, sous licence SIL Open Font License 1.1 (`assets/fonts/OFL-Lobster.txt`).
+Polices sous licence SIL Open Font License 1.1 (textes de licence dans `assets/fonts/`) :
+- [Lobster](https://github.com/impallari/The-Lobster-Font) © The Lobster Project Authors ;
+- [Patrick Hand](https://github.com/google/fonts/tree/main/ofl/patrickhand) © Patrick Wagesreiter ;
+- [Caveat](https://github.com/googlefonts/caveat) © The Caveat Project Authors.
 
 ## Développement
 

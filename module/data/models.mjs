@@ -20,6 +20,8 @@ export class WitchData extends foundry.abstract.TypeDataModel {
       essence: essenceField(2),
       pronouns: new fields.StringField({ initial: "" }),
       look: new fields.StringField({ initial: "" }),
+      dream: new fields.StringField({ initial: "" }),
+      paths: new fields.StringField({ initial: "" }),
       traits: new fields.ArrayField(new fields.SchemaField({
         question: new fields.StringField({ initial: "" }),
         name: new fields.StringField({ initial: "" }),
