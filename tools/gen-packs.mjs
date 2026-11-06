@@ -90,7 +90,7 @@ const ingredients = INGREDIENTS.map(([e, name, desc]) => {
   const _id = id(`ingredient-${e}`);
   return {
     _id, _key: `!items!${_id}`, name, type: "ingredient", img: ESS(e),
-    system: { essence: e, quantity: 3, description: p(desc) },
+    system: { essence: e, quantity: 3, base: true, description: p(desc) },
     effects: [], folder: null, sort: e * 100, flags: {}
   };
 });

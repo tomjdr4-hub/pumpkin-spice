@@ -79,7 +79,7 @@
             {{#if @root.editable}}<a class="ps-icon-btn ps-row-delete" data-action="deleteItem" data-tooltip="{{localize 'PS.Sheet.Delete'}}"><i class="fa-solid fa-trash"></i></a>{{/if}}
           </td>
           {{#each row.cells as |c|}}
-          <td class="ps-ess-cell ess-{{c.value}}" {{#if @root.editable}}data-action="setIngredientEssence" data-value="{{c.value}}"{{/if}}>{{#if c.on}}X{{/if}}</td>
+          <td class="ps-ess-cell ess-{{c.value}}" {{#if row.locked}}{{#if c.on}}data-tooltip="{{row.lockHint}}"{{/if}}{{else}}data-action="setIngredientEssence" data-value="{{c.value}}"{{/if}}>{{#if c.on}}X{{/if}}</td>
           {{/each}}
           <td class="ps-col-qty {{#unless row.quantity}}danger{{/unless}}">
             <input type="number" value="{{row.quantity}}" min="0" data-item-field="system.quantity">

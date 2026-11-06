@@ -42,7 +42,9 @@
       "evanescentChamomile": "Evanescent Chamomile",
       "crimsonCinnamon": "Crimson Cinnamon",
       "lunarLavender": "Lunar Lavender",
-      "quantity": "Doses"
+      "quantity": "Doses",
+      "baseLocked": "Basic Ingredient: its Essence is set by the book.",
+      "gmOnly": "Only the Guide (GM) decides an Ingredient's Essence."
     },
     "Archetype": {
       "green": "Green Witch",
@@ -296,7 +298,8 @@
       "ThreeIngredients": "A Beverage needs exactly 3 Ingredients.",
       "NotEnoughDoses": "Not enough doses for this Beverage.",
       "NoMedium": "No Medium: the Guide must create one.",
-      "NoDesires": "This Medium's sought Essences haven't been rolled."
+      "NoDesires": "This Medium's sought Essences haven't been rolled.",
+      "IngredientEssenceLocked": "You cannot change this Ingredient's Essence."
     },
     "Settings": {
       "ShowFount": "Show the Fount banner",

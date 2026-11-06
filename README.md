@@ -39,7 +39,7 @@ https://github.com/tomjdr4-hub/pumpkin-spice/releases/latest/download/system.jso
 ### Fiche de Café (fiche partagée du coven)
 - Mise en page calquée sur la fiche papier, en trois colonnes :
   - nom du Café et lieu, **Source de Magie**, **Ambiance** (six citrouilles cliquables), **Incident Magique** (tasses de 4 à 0, cliquables) ;
-  - **Garde-manger** : tableau des Ingrédients avec une colonne colorée par Essence (un clic sur la case change l'Essence) et la quantité ;
+  - **Garde-manger** : tableau des Ingrédients avec une colonne colorée par Essence et la quantité. L'Essence des 6 Ingrédients de base est fixée par le livre ; celle des Ingrédients créés à la table se change d'un clic, par la Guide (MJ) uniquement ;
   - **Café** : description du lieu et **histoire du Café**.
 - Onglet **Moments** : Journée, Dé d'Essence, Grande inauguration, Agir ensemble, Coup de feu, Médium, É.M.I., Fin de la Journée ; le coven et ses Sorts.
 - Onglet **Notes** : mobilier et décoration, notes libres.

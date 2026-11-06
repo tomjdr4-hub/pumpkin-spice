@@ -7,7 +7,8 @@
         <label class="ps-essence-pick">{{localize "PS.Witch.essence"}}
           <span class="ps-essence-select">
             <img class="ps-essence" src="{{essenceIcon}}" alt="">
-            <select name="system.essence" data-dtype="Number">{{selectOptions essences selected=system.essence valueAttr="value" labelAttr="label"}}</select>
+            <select name="system.essence" data-dtype="Number" {{#if essenceLocked}}disabled data-tooltip="{{essenceLockHint}}"{{/if}}>{{selectOptions essences selected=system.essence valueAttr="value" labelAttr="label"}}</select>
+            {{#if essenceLocked}}<i class="fa-solid fa-lock" data-tooltip="{{essenceLockHint}}"></i>{{/if}}
           </span>
         </label>
         <label>{{localize "PS.Ingredient.quantity"}}<input type="number" name="system.quantity" value="{{system.quantity}}" min="0" class="ps-short"></label>

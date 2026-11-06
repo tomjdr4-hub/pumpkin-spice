@@ -72,6 +72,19 @@ export function baseIngredientLabel(e) {
   return game.i18n.localize(`PS.Ingredient.${PS.BASE_INGREDIENTS[e]}`);
 }
 
+/** Ingrédient de base du kit (Essence fixée par le livre) : marqué, ou reconnu à son nom et son Essence. */
+export function isBaseIngredient(item) {
+  if ( item?.type !== "ingredient" ) return false;
+  if ( item.system.base ) return true;
+  const key = PS.BASE_INGREDIENTS[item.system.essence];
+  return !!key && (item.name === baseIngredientLabel(item.system.essence));
+}
+
+/** L'Essence d'un Ingrédient : fixe pour les Ingrédients de base, sinon décidée par la Guide (MJ). */
+export function canChangeIngredientEssence(item, user = game.user) {
+  return !!user?.isGM && !isBaseIngredient(item);
+}
+
 /** « 2 4, 6-6 » → [2, 4, 6, 6]. */
 export function parseEssences(value) {
   if ( Array.isArray(value) ) return value.map(Number).filter(e => e >= 1 && e <= 6);

@@ -7,6 +7,7 @@
   "system": {
     "essence": 6,
     "quantity": 3,
+    "base": true,
     "description": "<p>Des épis argentés qu'on récolte, dit-on, à la pleine lune.</p>"
   },
   "effects": [],

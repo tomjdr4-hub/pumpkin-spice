@@ -2,7 +2,7 @@
  * Pumpkin Spice — système Foundry VTT (V13 / V14).
  * JdR cosy : un coven de Sorcières tient un Café magique bâti sur une Source de Magie.
  */
-import { PS, SYSTEM_ID, SYSTEM_PATH, essenceIcon, essenceLabel } from "./module/config.mjs";
+import { PS, SYSTEM_ID, SYSTEM_PATH, essenceIcon, essenceLabel, isBaseIngredient } from "./module/config.mjs";
 import { CafeData, IngredientData, MediumData, SpellData, WitchData } from "./module/data/models.mjs";
 import { PSActor, PSItem } from "./module/documents.mjs";
 import { CafeSheet, IngredientSheet, MediumSheet, SpellSheet, WitchSheet, pickWitch } from "./module/sheets.mjs";
@@ -68,7 +68,18 @@ Hooks.once("init", () => {
 Hooks.once("ready", () => {
   registerSocket();
   renderFountHUD();
+  markBaseIngredients();
 });
+
+/** Cafés créés avant la v0.4 : marquer les Ingrédients de base, dont l'Essence est fixée par le livre. */
+async function markBaseIngredients() {
+  if ( game.user !== game.users.activeGM ) return;
+  for ( const cafe of game.actors.filter(a => a.type === "cafe") ) {
+    const updates = cafe.items.filter(i => (i.type === "ingredient") && !i.system.base && isBaseIngredient(i))
+      .map(i => ({ _id: i.id, "system.base": true }));
+    if ( updates.length ) await cafe.updateEmbeddedDocuments("Item", updates);
+  }
+}
 
 /* Boutons des cartes de chat. */
 Hooks.on("renderChatMessageHTML", (message, html) => {

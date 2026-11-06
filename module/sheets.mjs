@@ -1,7 +1,7 @@
 /**
  * Fiches d'Acteurs et d'Objets (ApplicationV2).
  */
-import { PS, SYSTEM_ID, SYSTEM_PATH, essenceIcon, essenceLabel, essenceOptions, parseEssences } from "./config.mjs";
+import { PS, SYSTEM_ID, SYSTEM_PATH, essenceIcon, essenceLabel, canChangeIngredientEssence, essenceOptions, isBaseIngredient, parseEssences } from "./config.mjs";
 import { getCafe } from "./fount.mjs";
 import { castSpell, openCovenDialog, openTestDialog, rollNarrative, startRushHour } from "./tests.mjs";
 import { interact, prepareBeverage, rollDesires, startCountdown } from "./medium.mjs";
@@ -334,6 +334,8 @@ export class CafeSheet extends PSActorSheet {
       essenceColumns: [1, 2, 3, 4, 5, 6].map(e => ({ value: e, icon: essenceIcon(e), label: essenceLabel(e) })),
       pantryRows: ingredients.map(i => ({
         id: i.id, name: i.name, quantity: i.system.quantity,
+        locked: !canChangeIngredientEssence(i),
+        lockHint: isBaseIngredient(i) ? t("PS.Ingredient.baseLocked") : t("PS.Ingredient.gmOnly"),
         cells: [1, 2, 3, 4, 5, 6].map(e => ({ value: e, on: e === i.system.essence }))
       })),
       fillerRows: Array.from({ length: Math.max(CafeSheet.PANTRY_ROWS - ingredients.length, 1) }, (_, i) => ({ add: (i === 0) && this.isEditable })),
@@ -369,7 +371,7 @@ export class CafeSheet extends PSActorSheet {
 
   static async #onSetIngredientEssence(event, target) {
     const item = this._item(target);
-    if ( item ) await item.update({ "system.essence": Number(target.dataset.value) });
+    if ( item && canChangeIngredientEssence(item) ) await item.update({ "system.essence": Number(target.dataset.value) });
   }
 
   static async #onSetVibe(event, target) {
@@ -524,6 +526,8 @@ class PSItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       item, system: item.system, editable: this.isEditable,
       essences: essenceOptions(),
       essenceIcon: essenceIcon(item.system.essence ?? 1),
+      essenceLocked: (item.type === "ingredient") && !canChangeIngredientEssence(item),
+      essenceLockHint: isBaseIngredient(item) ? t("PS.Ingredient.baseLocked") : t("PS.Ingredient.gmOnly"),
       enriched: await enrich(item, this.constructor.HTML_FIELDS)
     });
     return context;

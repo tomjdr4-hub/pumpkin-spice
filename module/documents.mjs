@@ -1,7 +1,7 @@
 /**
  * Classes de documents : valeurs par défaut à la création.
  */
-import { PS, SYSTEM_ID, baseIngredientLabel, essenceIcon } from "./config.mjs";
+import { PS, SYSTEM_ID, baseIngredientLabel, canChangeIngredientEssence, essenceIcon } from "./config.mjs";
 
 const OWNER = CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER;
 const OBSERVER = CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER;
@@ -35,7 +35,7 @@ export class PSActor extends Actor {
     if ( !this.items.size && !options.fromCompendium && !data.items?.length ) {
       const items = Object.keys(PS.BASE_INGREDIENTS).map(e => ({
         name: baseIngredientLabel(e), type: "ingredient", img: essenceIcon(e),
-        system: { essence: Number(e), quantity: PS.START.doses }
+        system: { essence: Number(e), quantity: PS.START.doses, base: true }
       }));
       await this.createEmbeddedDocuments("Item", items);
     }
@@ -53,5 +53,18 @@ export class PSItem extends Item {
     if ( !DEFAULT_ICONS.has(data.img) ) return;
     if ( this.type === "ingredient" ) this.updateSource({ img: essenceIcon(this.system.essence) });
     else if ( this.type === "spell" ) this.updateSource({ img: PS.ICONS.spell });
+  }
+
+  /** @override L'Essence d'un Ingrédient de base est fixe ; celle des autres est réservée à la Guide. */
+  async _preUpdate(changes, options, user) {
+    if ( (await super._preUpdate(changes, options, user)) === false ) return false;
+    if ( this.type !== "ingredient" ) return;
+    const u = (typeof user === "string" ? game.users.get(user) : user) ?? game.user;
+    const essence = foundry.utils.getProperty(changes, "system.essence");
+    if ( (essence !== undefined) && (Number(essence) !== this.system.essence) && !canChangeIngredientEssence(this, u) ) {
+      delete changes.system.essence;
+      ui.notifications.warn("PS.Warn.IngredientEssenceLocked", { localize: true });
+    }
+    if ( (foundry.utils.getProperty(changes, "system.base") === false) && this.system.base && !u.isGM ) delete changes.system.base;
   }
 }

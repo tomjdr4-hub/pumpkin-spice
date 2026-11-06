@@ -42,7 +42,9 @@
       "evanescentChamomile": "Camomille Évanescente",
       "crimsonCinnamon": "Cannelle Pourpre",
       "lunarLavender": "Lavande Lunaire",
-      "quantity": "Doses"
+      "quantity": "Doses",
+      "baseLocked": "Ingrédient de base : son Essence est fixée par le livre.",
+      "gmOnly": "Seule la Guide (MJ) décide de l'Essence d'un Ingrédient."
     },
     "Archetype": {
       "green": "Sorcière Verte",
@@ -296,7 +298,8 @@
       "ThreeIngredients": "Un Breuvage demande exactement 3 Ingrédients.",
       "NotEnoughDoses": "Pas assez de doses pour ce Breuvage.",
       "NoMedium": "Aucun Médium : la Guide doit en créer un.",
-      "NoDesires": "Les Essences recherchées par ce Médium n'ont pas été tirées."
+      "NoDesires": "Les Essences recherchées par ce Médium n'ont pas été tirées.",
+      "IngredientEssenceLocked": "Vous ne pouvez pas changer l'Essence de cet Ingrédient."
     },
     "Settings": {
       "ShowFount": "Afficher le bandeau de la Source",

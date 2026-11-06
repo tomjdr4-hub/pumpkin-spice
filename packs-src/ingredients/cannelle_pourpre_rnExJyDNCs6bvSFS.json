@@ -7,6 +7,7 @@
   "system": {
     "essence": 5,
     "quantity": 3,
+    "base": true,
     "description": "<p>Des bâtons d'un rouge profond, au parfum de rêverie.</p>"
   },
   "effects": [],

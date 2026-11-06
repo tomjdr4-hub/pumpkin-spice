@@ -117,6 +117,7 @@ export class IngredientData extends foundry.abstract.TypeDataModel {
     return {
       essence: essenceField(1),
       quantity: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 3 }),
+      base: new fields.BooleanField({ initial: false }),
       description: new fields.HTMLField({ initial: "" })
     };
   }
