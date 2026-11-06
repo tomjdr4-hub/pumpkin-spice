@@ -2,7 +2,7 @@
   "id": "pumpkin-spice",
   "title": "Pumpkin Spice",
   "description": "Système non officiel pour Pumpkin Spice, le JdR cosy où un coven de Sorcières tient un Café magique (Acheron Games). Dés d'Essence, Source de Magie partagée, Ambiance, Médiums et Breuvages.",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "compatibility": {
     "minimum": "13",
     "verified": "14"
@@ -19,7 +19,8 @@
   "styles": [
     "styles/pumpkin-spice.css",
     "styles/cafe-sheet.css",
-    "styles/witch-sheet.css"
+    "styles/witch-sheet.css",
+    "styles/cafe-menu.css"
   ],
   "languages": [
     {
@@ -36,21 +37,38 @@
   "documentTypes": {
     "Actor": {
       "witch": {
-        "htmlFields": ["biography", "realization", "notes"]
+        "htmlFields": [
+          "biography",
+          "realization",
+          "notes"
+        ]
       },
       "cafe": {
-        "htmlFields": ["description", "decorations", "notes"]
+        "htmlFields": [
+          "description",
+          "history",
+          "decorations",
+          "notes"
+        ]
       },
       "medium": {
-        "htmlFields": ["description", "notes"]
+        "htmlFields": [
+          "description",
+          "notes"
+        ]
       }
     },
     "Item": {
       "spell": {
-        "htmlFields": ["description", "conditions"]
+        "htmlFields": [
+          "description",
+          "conditions"
+        ]
       },
       "ingredient": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       }
     }
   },
@@ -68,7 +86,10 @@
       "path": "packs/sorcieres",
       "type": "Actor",
       "system": "pumpkin-spice",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "sorts",
@@ -76,7 +97,10 @@
       "path": "packs/sorts",
       "type": "Item",
       "system": "pumpkin-spice",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "ingredients",
@@ -84,7 +108,10 @@
       "path": "packs/ingredients",
       "type": "Item",
       "system": "pumpkin-spice",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "tables",
@@ -92,7 +119,10 @@
       "path": "packs/tables",
       "type": "RollTable",
       "system": "pumpkin-spice",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "aide",
@@ -100,7 +130,10 @@
       "path": "packs/aide",
       "type": "JournalEntry",
       "system": "pumpkin-spice",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "packFolders": [
@@ -108,7 +141,13 @@
       "name": "Pumpkin Spice",
       "sorting": "m",
       "color": "#d9822b",
-      "packs": ["sorcieres", "sorts", "ingredients", "tables", "aide"]
+      "packs": [
+        "sorcieres",
+        "sorts",
+        "ingredients",
+        "tables",
+        "aide"
+      ]
     }
   ],
   "url": "https://github.com/tomjdr4-hub/pumpkin-spice",

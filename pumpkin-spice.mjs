@@ -9,6 +9,7 @@ import { CafeSheet, IngredientSheet, MediumSheet, SpellSheet, WitchSheet, pickWi
 import { changeCafe, getCafe, registerSocket } from "./module/fount.mjs";
 import * as tests from "./module/tests.mjs";
 import * as medium from "./module/medium.mjs";
+import { seedMenu } from "./module/menu.mjs";
 
 Hooks.once("init", () => {
   CONFIG.PS = PS;
@@ -78,6 +79,8 @@ async function markBaseIngredients() {
     const updates = cafe.items.filter(i => (i.type === "ingredient") && !i.system.base && isBaseIngredient(i))
       .map(i => ({ _id: i.id, "system.base": true }));
     if ( updates.length ) await cafe.updateEmbeddedDocuments("Item", updates);
+    // Cafés d'avant la v0.6 : carte de départ.
+    await seedMenu(cafe);
   }
 }
 

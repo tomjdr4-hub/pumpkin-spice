@@ -3,6 +3,7 @@
  */
 import { SYSTEM_ID, SYSTEM_PATH, essenceIcon, essenceLabel, formatEssences, matchEssences, parseEssences } from "./config.mjs";
 import { applyChatMode, exec, getCafe, registerHandler } from "./fount.mjs";
+import { addBeverageToMenu } from "./menu.mjs";
 
 const { DialogV2 } = foundry.applications.api;
 const renderTemplate = (...args) => foundry.applications.handlebars.renderTemplate(...args);
@@ -189,6 +190,19 @@ export function onRenderBeverageMessage(message, html) {
     button.addEventListener("click", event => {
       event.preventDefault();
       serve(message);
+    });
+  });
+  html.querySelectorAll("[data-ps-action=addMenu]").forEach(button => {
+    if ( !game.user.isGM ) {
+      button.remove();
+      return;
+    }
+    button.addEventListener("click", async event => {
+      event.preventDefault();
+      const cafeName = await addBeverageToMenu(message);
+      if ( !cafeName ) return;
+      const state = { ...foundry.utils.deepClone(message.getFlag(SYSTEM_ID, "beverage")), menuAdded: cafeName };
+      await message.update({ content: await renderBeverage(state), [`flags.${SYSTEM_ID}.beverage`]: state });
     });
   });
 }

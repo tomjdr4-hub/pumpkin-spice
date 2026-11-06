@@ -1,0 +1,89 @@
+<section class="tab {{tab.cssClass}} ps-cafe-menu" data-tab="menu" data-group="primary">
+
+  {{!-- Volet 1 : boissons chaudes --}}
+  <div class="ps-fold ps-fold-brews">
+    <h2 class="ps-script">{{localize "PS.Menu.brews"}}</h2>
+    <ul class="ps-menu-list">
+      {{#each menu.brews as |b|}}
+      <li class="ps-menu-row" data-index="{{b.index}}">
+        <input class="ps-hand ps-menu-name" type="text" name="system.menu.brews.{{b.index}}.name" value="{{b.name}}" placeholder="{{localize 'PS.Menu.name'}}">
+        <span class="ps-menu-dots"></span>
+        <input class="ps-hand ps-menu-price" type="text" name="system.menu.brews.{{b.index}}.price" value="{{b.price}}" placeholder="0,00" data-tooltip="{{b.display}}">
+        {{#if @root.editable}}<a class="ps-menu-delete" data-action="removeMenuEntry" data-list="brews" data-tooltip="{{localize 'PS.Sheet.Delete'}}"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+      </li>
+      {{/each}}
+    </ul>
+    {{#if editable}}<a class="ps-menu-add" data-action="addMenuEntry" data-list="brews"><i class="fa-solid fa-plus"></i> {{localize "PS.Menu.addBrew"}}</a>{{/if}}
+    <textarea class="ps-hand ps-menu-note" name="system.menu.brewsNote" rows="2" placeholder="{{localize 'PS.Menu.notePlaceholder'}}">{{menu.brewsNote}}</textarea>
+  </div>
+
+  {{!-- Volet 2 : invitation --}}
+  <div class="ps-fold ps-fold-invite">
+    <textarea class="ps-menu-slogan" name="system.menu.slogan" rows="2" placeholder="{{localize 'PS.Menu.sloganPlaceholder'}}">{{menu.slogan}}</textarea>
+    <h3 class="ps-menu-heading">{{#if menu.opening}}{{localize "PS.Menu.openingBadge"}}{{else}}{{localize "PS.Menu.invitationTitle"}}{{/if}}</h3>
+    <textarea class="ps-hand ps-ruled" name="system.menu.invitation" rows="3" placeholder="{{localize 'PS.Menu.invitationPlaceholder'}}">{{menu.invitation}}</textarea>
+    <div class="ps-menu-map" aria-hidden="true">
+      <svg viewBox="0 0 200 110">
+        <path class="road" d="M0 70 C40 60 70 80 110 66 S170 40 200 46"/>
+        <path class="road thin" d="M60 0 C64 30 58 60 66 110"/>
+        <path class="road thin" d="M140 0 C136 20 150 45 146 110"/>
+        <circle class="tree" cx="28" cy="30" r="9"/><circle class="tree" cx="42" cy="24" r="7"/>
+        <circle class="tree" cx="176" cy="88" r="8"/><circle class="tree" cx="104" cy="96" r="6"/>
+        <rect class="house" x="92" y="22" width="16" height="14" rx="2"/><rect class="house" x="164" y="60" width="14" height="12" rx="2"/>
+        <path class="pin" d="M120 62c0-8 6-13 12-13s12 5 12 13c0 9-12 22-12 22s-12-13-12-22z"/>
+        <circle cx="132" cy="61" r="4" fill="#fbf4ea"/>
+      </svg>
+    </div>
+    <label class="ps-menu-address"><i class="fa-solid fa-location-dot"></i>
+      <input class="ps-hand" type="text" name="system.menu.address" value="{{menu.address}}" placeholder="{{localize 'PS.Menu.addressPlaceholder'}}">
+    </label>
+    <h3 class="ps-menu-heading">{{localize "PS.Menu.philosophy"}}</h3>
+    <textarea class="ps-hand ps-ruled ps-grow" name="system.menu.philosophy" rows="5" placeholder="{{localize 'PS.Menu.philosophyPlaceholder'}}">{{menu.philosophy}}</textarea>
+  </div>
+
+  {{!-- Volet 3 : couverture --}}
+  <div class="ps-fold ps-fold-cover">
+    <figure class="ps-menu-cover">
+      <img src="{{actor.img}}" data-action="editImage" data-edit="img" alt="{{actor.name}}" data-tooltip="{{localize 'PS.Menu.coverImage'}}">
+      {{#if menu.opening}}<span class="ps-menu-badge">{{localize "PS.Menu.openingBadge"}}</span>{{/if}}
+    </figure>
+    <h2 class="ps-script ps-menu-title">{{actor.name}}</h2>
+    {{#if system.style}}<p class="ps-menu-style">{{system.style}}</p>{{/if}}
+    <div class="ps-menu-settings">
+      <label><input type="checkbox" name="system.menu.opening" {{checked menu.opening}}> {{localize "PS.Menu.opening"}}</label>
+      <label>{{localize "PS.Menu.currency"}}
+        <input class="ps-menu-currency" type="text" name="system.menu.currency" value="{{menu.currency}}" maxlength="4">
+      </label>
+    </div>
+    <button type="button" data-action="postMenu"><i class="fa-solid fa-comment"></i> {{localize "PS.Menu.postMenu"}}</button>
+    <span class="ps-paper-label">{{localize "PS.Menu.cover"}}</span>
+  </div>
+
+  {{!-- Volet 4 : spécialités --}}
+  <div class="ps-fold ps-fold-specials">
+    <h2 class="ps-script">{{localize "PS.Menu.specials"}}</h2>
+    <ul class="ps-menu-list">
+      {{#each menu.specials as |sp|}}
+      <li class="ps-menu-special" data-index="{{sp.index}}">
+        <div class="ps-menu-row">
+          <input class="ps-hand ps-menu-name strong" type="text" name="system.menu.specials.{{sp.index}}.name" value="{{sp.name}}" placeholder="{{localize 'PS.Menu.name'}}">
+          <span class="ps-menu-dots"></span>
+          <input class="ps-hand ps-menu-price" type="text" name="system.menu.specials.{{sp.index}}.price" value="{{sp.price}}" placeholder="0,00" data-tooltip="{{sp.display}}">
+        </div>
+        <textarea class="ps-hand ps-menu-text" name="system.menu.specials.{{sp.index}}.text" rows="2" placeholder="{{localize 'PS.Menu.textPlaceholder'}}">{{sp.text}}</textarea>
+        <div class="ps-menu-meta">
+          <span class="ps-menu-icons">{{#each sp.icons as |e|}}<img class="ps-essence small" src="{{e.icon}}" alt="" data-tooltip="{{e.label}}">{{/each}}</span>
+          <input class="ps-menu-essences" type="text" name="system.menu.specials.{{sp.index}}.essences" value="{{sp.essences}}" placeholder="1 3 5" data-tooltip="{{localize 'PS.Menu.essencesHint'}}">
+          <input type="hidden" name="system.menu.specials.{{sp.index}}.medium" value="{{sp.medium}}">
+          {{#if sp.medium}}<i class="ps-menu-medium">{{localize "PS.Menu.createdFor" name=sp.medium}}</i>{{/if}}
+          <span class="ps-grow"></span>
+          <a data-action="postSpecial" data-tooltip="{{localize 'PS.Menu.post'}}"><i class="fa-solid fa-comment"></i></a>
+          {{#if @root.editable}}<a class="ps-menu-delete" data-action="removeMenuEntry" data-list="specials" data-tooltip="{{localize 'PS.Sheet.Delete'}}"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+    {{#if editable}}<a class="ps-menu-add" data-action="addMenuEntry" data-list="specials"><i class="fa-solid fa-plus"></i> {{localize "PS.Menu.addSpecial"}}</a>{{/if}}
+    <textarea class="ps-hand ps-menu-note" name="system.menu.specialsNote" rows="2" placeholder="{{localize 'PS.Menu.notePlaceholder'}}">{{menu.specialsNote}}</textarea>
+  </div>
+</section>

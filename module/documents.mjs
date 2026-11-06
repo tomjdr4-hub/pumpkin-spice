@@ -2,6 +2,7 @@
  * Classes de documents : valeurs par défaut à la création.
  */
 import { PS, SYSTEM_ID, baseIngredientLabel, canChangeIngredientEssence, essenceIcon } from "./config.mjs";
+import { seedMenu } from "./menu.mjs";
 
 const OWNER = CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER;
 const OBSERVER = CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER;
@@ -39,6 +40,8 @@ export class PSActor extends Actor {
       }));
       await this.createEmbeddedDocuments("Item", items);
     }
+    // Carte de départ (dos de la fiche du Café).
+    await seedMenu(this);
     // Premier Café du monde : il devient le Café actif.
     if ( game.user.isGM && !game.actors.get(game.settings.get(SYSTEM_ID, "activeCafe")) ) {
       await game.settings.set(SYSTEM_ID, "activeCafe", this.id);

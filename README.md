@@ -41,6 +41,7 @@ https://github.com/tomjdr4-hub/pumpkin-spice/releases/latest/download/system.jso
   - nom du Café et lieu, **Source de Magie**, **Ambiance** (six citrouilles cliquables), **Incident Magique** (tasses de 4 à 0, cliquables) ;
   - **Garde-manger** : tableau des Ingrédients avec une colonne colorée par Essence et la quantité. L'Essence des 6 Ingrédients de base est fixée par le livre ; celle des Ingrédients créés à la table se change d'un clic, par la Guide (MJ) uniquement ;
   - **Café** : description du lieu et **histoire du Café**.
+- Onglet **Carte** (le dos de la fiche, en dépliant) : boissons chaudes avec leurs prix, invitation (slogan, adresse, philosophie du Café), couverture (image du Café, pastille « Grande inauguration »), spécialités avec une petite phrase et leurs Essences. Devise au choix. Une carte de départ est fournie : les boissons classiques et six spécialités originales, une par Ingrédient de base. Tout se modifie. Envoi dans le chat de toute la carte ou d'une spécialité (« Un client commande… »).
 - Onglet **Moments** : Journée, Dé d'Essence, Grande inauguration, Agir ensemble, Coup de feu, Médium, É.M.I., Fin de la Journée ; le coven et ses Sorts.
 - Onglet **Notes** : mobilier et décoration, notes libres.
 - 3 doses de chaque Ingrédient de base à la création.
@@ -50,6 +51,7 @@ https://github.com/tomjdr4-hub/pumpkin-spice/releases/latest/download/system.jso
 - Fiche de Médium : la Guide tire en secret les 3 Essences recherchées (message privé), avec des pistes pour l'incarner.
 - Compte à rebours d'interactions (1 + Ambiance), annoncé dans le chat.
 - **Préparer un Breuvage** : 3 Ingrédients du garde-manger. La Guide clique sur **Servir** : doses consommées, +1 Magie par Essence juste, +1d6 pour un Breuvage parfait, lien noué avec la Source.
+- Une fois le Breuvage servi, la Guide peut l'**ajouter à la carte** du Café : il devient une spécialité avec ses 3 Essences et le nom du Médium.
 
 ### Sorts
 - Coût en Magie, Essences requises, Essences si les conditions ne sont pas réunies (le système demande au lancement).

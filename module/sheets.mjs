@@ -5,6 +5,7 @@ import { PS, SYSTEM_ID, SYSTEM_PATH, essenceIcon, essenceLabel, canChangeIngredi
 import { getCafe } from "./fount.mjs";
 import { castSpell, openCovenDialog, openTestDialog, rollNarrative, startRushHour } from "./tests.mjs";
 import { interact, prepareBeverage, rollDesires, startCountdown } from "./medium.mjs";
+import { formatPrice, postMenu, postSpecial } from "./menu.mjs";
 
 const { HandlebarsApplicationMixin, DialogV2 } = foundry.applications.api;
 const { ActorSheetV2, ItemSheetV2 } = foundry.applications.sheets;
@@ -304,7 +305,11 @@ export class CafeSheet extends PSActorSheet {
       newMedium: CafeSheet.#onNewMedium,
       beverage: () => prepareBeverage(),
       ume: CafeSheet.#onUME,
-      endDay: CafeSheet.#onEndDay
+      endDay: CafeSheet.#onEndDay,
+      addMenuEntry: CafeSheet.#onAddMenuEntry,
+      removeMenuEntry: CafeSheet.#onRemoveMenuEntry,
+      postMenu: CafeSheet.#onPostMenu,
+      postSpecial: CafeSheet.#onPostSpecial
     }
   };
 
@@ -313,6 +318,7 @@ export class CafeSheet extends PSActorSheet {
   static PARTS = {
     tabs: { template: "templates/generic/tab-navigation.hbs" },
     sheet: { template: `${T}/actor/cafe-sheet.hbs`, scrollable: [".ps-panel-pantry", ".ps-panel-right"] },
+    menu: { template: `${T}/actor/cafe-menu.hbs`, scrollable: [".ps-fold"] },
     moments: { template: `${T}/actor/cafe-moments.hbs`, scrollable: [""] },
     notes: { template: `${T}/actor/cafe-notes.hbs`, scrollable: [""] }
   };
@@ -321,6 +327,7 @@ export class CafeSheet extends PSActorSheet {
     primary: {
       tabs: [
         { id: "sheet", icon: "fa-solid fa-mug-saucer" },
+        { id: "menu", icon: "fa-solid fa-book-open" },
         { id: "moments", icon: "fa-solid fa-clock" },
         { id: "notes", icon: "fa-solid fa-feather" }
       ],
@@ -353,9 +360,56 @@ export class CafeSheet extends PSActorSheet {
       })),
       fillerRows: Array.from({ length: Math.max(CafeSheet.PANTRY_ROWS - ingredients.length, 1) }, (_, i) => ({ add: (i === 0) && this.isEditable })),
       witches: game.actors.filter(a => a.type === "witch").map(w => ({ id: w.id, name: w.name, img: w.img, essenceIcon: essenceIcon(w.system.essence) })),
-      mediums: game.actors.filter(a => (a.type === "medium") && a.visible).map(m => ({ id: m.id, name: m.name, img: m.img, bonded: m.system.bonded }))
+      mediums: game.actors.filter(a => (a.type === "medium") && a.visible).map(m => ({ id: m.id, name: m.name, img: m.img, bonded: m.system.bonded })),
+      menu: {
+        ...s.menu,
+        brews: s.menu.brews.map((b, index) => ({ ...b, index, display: formatPrice(b.price, s.menu.currency) })),
+        specials: s.menu.specials.map((sp, index) => ({
+          ...sp, index, display: formatPrice(sp.price, s.menu.currency),
+          icons: parseEssences(sp.essences).map(e => ({ icon: essenceIcon(e), label: essenceLabel(e) }))
+        }))
+      }
     });
     return context;
+  }
+
+  /** @override Lignes de la carte : objet indexé → tableau complet. */
+  _processFormData(event, form, formData) {
+    const data = super._processFormData(event, form, formData);
+    const menu = data.system?.menu;
+    if ( menu ) {
+      const current = this.actor.system.toObject().menu;
+      for ( const key of ["brews", "specials"] ) {
+        if ( !menu[key] || Array.isArray(menu[key]) ) continue;
+        const list = current[key];
+        for ( const [k, v] of Object.entries(menu[key]) ) list[Number(k)] = { ...list[Number(k)], ...v };
+        menu[key] = list;
+      }
+    }
+    return data;
+  }
+
+  static async #onAddMenuEntry(event, target) {
+    const key = target.dataset.list;
+    const list = this.actor.system.toObject().menu[key];
+    list.push(key === "brews" ? { name: "", price: "" } : { name: "", price: "", text: "", essences: "", medium: "" });
+    await this.actor.update({ [`system.menu.${key}`]: list });
+  }
+
+  static async #onRemoveMenuEntry(event, target) {
+    const key = target.dataset.list;
+    const index = Number(target.closest("[data-index]").dataset.index);
+    const list = this.actor.system.toObject().menu[key];
+    list.splice(index, 1);
+    await this.actor.update({ [`system.menu.${key}`]: list });
+  }
+
+  static #onPostMenu() {
+    return postMenu(this.actor);
+  }
+
+  static #onPostSpecial(event, target) {
+    return postSpecial(this.actor, Number(target.closest("[data-index]").dataset.index));
   }
 
   /** @override */

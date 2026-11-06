@@ -70,7 +70,29 @@ export class CafeData extends foundry.abstract.TypeDataModel {
       description: new fields.HTMLField({ initial: "" }),
       decorations: new fields.HTMLField({ initial: "" }),
       history: new fields.HTMLField({ initial: "" }),
-      notes: new fields.HTMLField({ initial: "" })
+      notes: new fields.HTMLField({ initial: "" }),
+      menu: new fields.SchemaField({
+        seeded: new fields.BooleanField({ initial: false }),
+        currency: new fields.StringField({ initial: "€" }),
+        opening: new fields.BooleanField({ initial: true }),
+        slogan: new fields.StringField({ initial: "" }),
+        address: new fields.StringField({ initial: "" }),
+        invitation: new fields.StringField({ initial: "" }),
+        philosophy: new fields.StringField({ initial: "" }),
+        brewsNote: new fields.StringField({ initial: "" }),
+        specialsNote: new fields.StringField({ initial: "" }),
+        brews: new fields.ArrayField(new fields.SchemaField({
+          name: new fields.StringField({ initial: "" }),
+          price: new fields.StringField({ initial: "" })
+        })),
+        specials: new fields.ArrayField(new fields.SchemaField({
+          name: new fields.StringField({ initial: "" }),
+          price: new fields.StringField({ initial: "" }),
+          text: new fields.StringField({ initial: "" }),
+          essences: new fields.StringField({ initial: "" }),
+          medium: new fields.StringField({ initial: "" })
+        }))
+      })
     };
   }
 }

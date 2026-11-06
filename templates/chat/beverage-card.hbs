@@ -15,6 +15,8 @@
     {{else}}{{localize "PS.Beverage.Correct" n=result.correct}}{{/if}}
   </div>
   <p class="ps-card-note"><i class="fa-solid fa-droplet"></i> {{localize "PS.Beverage.Gain" gain=result.gain magic=result.magic}}</p>
+  {{#if menuAdded}}<p class="ps-card-note"><i class="fa-solid fa-book-open"></i> {{localize "PS.Menu.addedToMenu" cafe=menuAdded}}</p>
+  {{else}}<div class="ps-card-buttons"><button type="button" data-ps-action="addMenu"><i class="fa-solid fa-book-open"></i> {{localize "PS.Menu.addToMenu"}}</button></div>{{/if}}
   {{else}}
   <p class="ps-card-note">{{localize "PS.Beverage.Waiting"}}</p>
   <div class="ps-card-buttons"><button type="button" data-ps-action="serve"><i class="fa-solid fa-hand-holding-heart"></i> {{localize "PS.Beverage.Serve"}}</button></div>
